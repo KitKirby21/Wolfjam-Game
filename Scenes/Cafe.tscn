@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cm8erptmmfk43"]
+
+[ext_resource type="Script" path="res://Scripts/Cafe.gd" id="1_2tq0t"]
+
+[node name="Cafe" type="Node2D"]
+script = ExtResource("1_2tq0t")
