@@ -1,6 +1,6 @@
 extends Control
 
-@onready var cat_anim = $CanvasLayer/Sprite2D/AnimationPlayer
+@onready var cat_anim = $CanvasLayer/Cat/Sprite2D/AnimationPlayer
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
