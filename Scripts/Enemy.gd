@@ -41,6 +41,7 @@ func take_damage(dmg):
 	print(health)
 	if health <= 0:
 		DungeonManager._chanceDrop(global_position)
+		queue_free()
 
 func _on_player_detection_zone_body_entered(body):
 	if body.is_in_group("player"):
