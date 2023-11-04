@@ -1,0 +1,47 @@
+[gd_scene load_steps=8 format=3 uid="uid://c5ie0iwimjnm"]
+
+[ext_resource type="Texture2D" uid="uid://c07vxxl6sykhv" path="res://icon.svg" id="1_o1obv"]
+[ext_resource type="Script" path="res://Scenes/pickup.gd" id="1_t7cc2"]
+[ext_resource type="Texture2D" uid="uid://dqnqxqecwn061" path="res://Resources/Textures/bullet.png" id="3_ttefq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8de3e"]
+size = Vector2(64, 65)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j2tce"]
+atlas = ExtResource("1_o1obv")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vkxms"]
+atlas = ExtResource("3_ttefq")
+region = Rect2(278, 0, 278, 145)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_k4iyf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j2tce")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vkxms")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="pickup" type="Area2D"]
+collision_layer = 5
+collision_mask = 5
+script = ExtResource("1_t7cc2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_8de3e")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(1, 0)
+rotation = -1.5708
+scale = Vector2(0.455756, 0.420043)
+sprite_frames = SubResource("SpriteFrames_k4iyf")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

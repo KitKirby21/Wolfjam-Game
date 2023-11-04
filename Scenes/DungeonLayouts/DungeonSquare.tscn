@@ -1,9 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://hinrjop3j4fu"]
+[gd_scene load_steps=11 format=3 uid="uid://hinrjop3j4fu"]
 
 [ext_resource type="Texture2D" uid="uid://bb7733ju4srun" path="res://Resources/Textures/TX Tileset Wall.png" id="1_nb1px"]
 [ext_resource type="Texture2D" uid="uid://6far8t1bd2sm" path="res://Resources/Textures/TX Tileset Stone Ground.png" id="2_phpai"]
 [ext_resource type="Texture2D" uid="uid://72u1uu6ogq14" path="res://Resources/Textures/TX Tileset Grass.png" id="3_ejd4y"]
 [ext_resource type="PackedScene" uid="uid://clm0appmkyrgr" path="res://Scenes/Player.tscn" id="4_pptyk"]
+[ext_resource type="PackedScene" uid="uid://c5ie0iwimjnm" path="res://Scenes/pickup.tscn" id="5_u2soo"]
+[ext_resource type="PackedScene" uid="uid://d10ktlmsdcynj" path="res://Scenes/Enemy.tscn" id="6_675ff"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1bk2c"]
 texture = ExtResource("1_nb1px")
@@ -1994,8 +1996,9 @@ sources/3 = SubResource("TileSetAtlasSource_r1gn1")
 [node name="DungeonSquare" type="Node2D"]
 
 [node name="TileMap" type="TileMap" parent="."]
-position = Vector2(19, 60)
-scale = Vector2(3.5, 3.5)
+visible = false
+position = Vector2(17, 42)
+scale = Vector2(1.74524, 2.75533)
 tile_set = SubResource("TileSet_h6t6e")
 format = 2
 layer_0/name = "0"
@@ -2016,6 +2019,12 @@ layer_2/z_index = 2
 layer_2/tile_data = PackedInt32Array(458782, 1572865, 4, 524318, 1572865, 5, 589854, 1572865, 6, 655390, 1572865, 7, 720926, 1572865, 9, 458783, 1703937, 4, 589855, 1638401, 6, 655391, 1638401, 7, 720927, 1638401, 9, 458784, 1769473, 4, 524320, 1769473, 5, 589856, 1769473, 6, 655392, 1769473, 7, 720928, 1769473, 9)
 
 [node name="Player" parent="." instance=ExtResource("4_pptyk")]
-position = Vector2(139, 156)
+position = Vector2(106, 299)
 scale = Vector2(3, 2.948)
-speed = 300
+
+[node name="pickup" parent="." instance=ExtResource("5_u2soo")]
+z_index = 4
+position = Vector2(574, 289)
+
+[node name="Enemy" parent="." instance=ExtResource("6_675ff")]
+position = Vector2(404, 303)
