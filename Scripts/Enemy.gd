@@ -23,7 +23,6 @@ var player = null
 
 func _ready():
 	add_to_group("enemy")
-	DungeonManager._chanceDrop(self.position)
 
 func _physics_process(delta):
 	match current_state:
@@ -55,4 +54,6 @@ func _on_hitbox_area_entered(area):
 		health -= area.bullet_damage
 		print(health)
 		if health <= 0:
+			#print(self.position)
 			DungeonManager._chanceDrop(self.position)
+			queue_free()
