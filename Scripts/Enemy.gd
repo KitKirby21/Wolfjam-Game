@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-@export var SPEED = 100
+@export var SPEED = 200
 
 var health = 5
 
@@ -30,11 +30,14 @@ func _physics_process(delta):
 		State.PATROL:
 			pass
 		State.ENGAGE:
-			var direction = (player.global_position - global_position).normalized()
-			var desired_velocity = direction * SPEED
-			var steering = (desired_velocity - velocity) * delta * 2.5
-			velocity += steering
-			move_and_slide()
+			move(player.global_position, delta)
+
+func move(target, delta):
+	var direction = (target - global_position).normalized()
+	var desired_velocity = direction * SPEED
+	var steering = (desired_velocity - velocity) * delta * 2.5
+	velocity += steering
+	move_and_slide()
 
 func take_damage(dmg):
 	health -= dmg
