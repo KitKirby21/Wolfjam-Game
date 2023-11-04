@@ -21,3 +21,7 @@ func _on_main_menu_button_pressed():
 
 func _on_quit_button_pressed():
 	get_tree().quit()
+
+#play meow
+func _on_cat_pressed():
+	pass # Replace with function body.
