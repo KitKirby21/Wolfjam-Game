@@ -1,16 +1,73 @@
-[gd_scene load_steps=5 format=3 uid="uid://b716n5eevuyyr"]
+[gd_scene load_steps=6 format=3 uid="uid://b716n5eevuyyr"]
 
 [ext_resource type="Script" path="res://Scripts/Main.gd" id="1_ut7xm"]
 [ext_resource type="Script" path="res://Scripts/BulletManager.gd" id="2_sptwv"]
 [ext_resource type="PackedScene" uid="uid://clm0appmkyrgr" path="res://Scenes/Player.tscn" id="2_w4hbu"]
-[ext_resource type="PackedScene" uid="uid://d10ktlmsdcynj" path="res://Scenes/Enemy.tscn" id="4_8g71a"]
+[ext_resource type="PackedScene" uid="uid://bu1dmilp5fard" path="res://Scenes/Enemy.tscn" id="4_8g71a"]
+[ext_resource type="PackedScene" uid="uid://hinrjop3j4fu" path="res://Scenes/DungeonLayouts/DungeonSquare.tscn" id="5_jhc8h"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_ut7xm")
 
 [node name="Player" parent="." instance=ExtResource("2_w4hbu")]
+position = Vector2(91, 186)
+scale = Vector2(1.527, 1.5)
 
 [node name="BulletManager" type="Node2D" parent="."]
+z_index = 3
 script = ExtResource("2_sptwv")
 
-[node name="Enemy" parent="." instance=ExtResource("4_8g71a")]
+[node name="DungeonSquare" parent="." instance=ExtResource("5_jhc8h")]
+position = Vector2(-13, -9)
+
+[node name="Enemies" type="Node2D" parent="."]
+
+[node name="Enemy" parent="Enemies" instance=ExtResource("4_8g71a")]
+z_index = 2
+position = Vector2(960, 524)
+marker_group_name = "wander1"
+
+[node name="Enemy2" parent="Enemies" instance=ExtResource("4_8g71a")]
+z_index = 2
+position = Vector2(635, 226)
+marker_group_name = "wander2"
+
+[node name="Enemy3" parent="Enemies" instance=ExtResource("4_8g71a")]
+z_index = 2
+position = Vector2(647, 505)
+marker_group_name = "wander3"
+
+[node name="Enemy4" parent="Enemies" instance=ExtResource("4_8g71a")]
+z_index = 2
+position = Vector2(934, 154)
+marker_group_name = "wander4"
+
+[node name="Enemy1Marker" type="Marker2D" parent="Enemies" groups=["wander1"]]
+position = Vector2(1070, 578)
+
+[node name="Enemy1Marker2" type="Marker2D" parent="Enemies" groups=["wander1"]]
+position = Vector2(826, 554)
+
+[node name="Enemy1Marker3" type="Marker2D" parent="Enemies" groups=["wander1"]]
+position = Vector2(1025, 423)
+
+[node name="Enemy2Marker" type="Marker2D" parent="Enemies" groups=["wander2"]]
+position = Vector2(655, 140)
+
+[node name="Enemy2Marker2" type="Marker2D" parent="Enemies" groups=["wander2"]]
+position = Vector2(651, 315)
+
+[node name="Enemy3Marker" type="Marker2D" parent="Enemies" groups=["wander3"]]
+position = Vector2(102, 541)
+
+[node name="Enemy3Marker2" type="Marker2D" parent="Enemies" groups=["wander3"]]
+position = Vector2(738, 521)
+
+[node name="Enemy4Marker" type="Marker2D" parent="Enemies" groups=["wander4"]]
+position = Vector2(925, 147)
+
+[node name="Enemy4Marker2" type="Marker2D" parent="Enemies" groups=["wander4"]]
+position = Vector2(829, 308)
+
+[node name="Enemy4Marker3" type="Marker2D" parent="Enemies" groups=["wander4"]]
+position = Vector2(1036, 353)
