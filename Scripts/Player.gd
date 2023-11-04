@@ -2,15 +2,6 @@ extends CharacterBody2D
 
 signal shot(bullet, position, direction)
 
-@export var speed = 200
-
-@export var health = 50
-
-@export var haste = 60
-
-@export var damage = 1
-
-@export var kromer = 0
 
 @export var can_move = true
 
@@ -26,11 +17,12 @@ func _process(delta):
 
 func _get_input():
 	var input_direction = Input.get_vector("moveLeft", "moveRight", "moveUp", "moveDown")
-	velocity = input_direction * speed
+	velocity = input_direction * DungeonManager.speed
 	look_at(get_global_mouse_position())
 	if Input.is_action_just_pressed("shoot"):
 		shoot()
 	if Input.is_action_just_pressed("swing"):
+		print(self.position)
 		anim_player.play("Swing")
 
 func shoot():
@@ -47,4 +39,10 @@ func _physics_process(delta):
 func _on_melee_swing_area_entered(area):
 	if area.is_in_group("enemy"):
 		#area.take_damage(damage)
-		print("hit")
+		get_tree().call_group("enemy", "take_damage")
+		print("took damage")
+		#if area.has_method("take_damage"):
+			#area.take_damage(damage)
+			#print("hit")
+	else:
+		print("cannot take damage")
