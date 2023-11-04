@@ -36,6 +36,11 @@ func _physics_process(delta):
 			velocity += steering
 			move_and_slide()
 
+func take_damage(dmg):
+	health -= dmg
+	print(health)
+	if health <= 0:
+		DungeonManager._chanceDrop(global_position)
 
 func _on_player_detection_zone_body_entered(body):
 	if body.is_in_group("player"):
@@ -52,7 +57,4 @@ func _on_player_detection_zone_body_exited(body):
 
 func _on_hitbox_area_entered(area):
 	if area.is_in_group("bullet"):
-		health -= area.bullet_damage
-		print(health)
-		if health <= 0:
-			DungeonManager._chanceDrop(self.position)
+		take_damage(area.bullet_damage)
