@@ -14,4 +14,11 @@ func _physics_process(delta):
 			enemy_anim.play("walk")
 
 func take_damage(dmg):
+	health -= dmg
+	current_state = State.STUN
+	stun_timer = 0.1
+	print(health)
+	if health <= 0:
+		DungeonManager._chanceDrop(global_position)
+		queue_free()
 	enemy_anim.play("take_damage")

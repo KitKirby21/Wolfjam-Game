@@ -16,14 +16,12 @@ func _ready():
 	
 	var player = get_tree().get_first_node_in_group("player")
 	Enemies = get_tree().get_nodes_in_group("enemy")
-	
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	Enemies = get_tree().get_nodes_in_group("enemy")
-	print(Enemies.size())
-	if(Enemies.size()<=2):
+	if(Enemies.size()<=0):
 		get_tree().change_scene_to_file("res://Scenes/Cafe.tscn")
 	
 func _chanceDrop(position):
