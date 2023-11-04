@@ -14,6 +14,8 @@ func _process(delta):
 
 func _on_start_button_pressed():
 	get_tree().change_scene_to_file("res://Scenes/Cafe.tscn")
+	DungeonManager.CurrentState = DungeonManager.Level.CAFE
+	
 
 
 func _on_controls_button_pressed():

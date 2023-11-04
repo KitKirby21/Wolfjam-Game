@@ -11,6 +11,7 @@ size = Vector2(64, 64)
 radius = 256.0
 
 [node name="RangedEnemy" type="CharacterBody2D"]
+process_mode = 3
 collision_layer = 4
 collision_mask = 4
 script = ExtResource("1_h45vj")

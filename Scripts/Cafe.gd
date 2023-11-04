@@ -1,7 +1,6 @@
 extends Node2D
 
 @onready var player = get_tree().get_first_node_in_group("player")
-@onready var manager = $DungeonManager;
 
 @onready var health_area = $HealthArea;
 @onready var speed_area = $SpeedArea;
@@ -33,7 +32,7 @@ func _process(delta):
 	
 	#checks the player's current money
 func _check_kromer(required_kromer):
-	if manager.kromer < required_kromer: return false;
+	if DungeonManager.kromer < required_kromer: return false;
 	else: return true;
 
 func _pet_cat():
@@ -43,20 +42,20 @@ func _pet_cat():
 	
 func _buy(shop, price):
 	if shop == "Health" and _check_kromer(price):
-		manager.health += 1;
-		manager.kromer -= price
+		DungeonManager.health += 1;
+		DungeonManager.kromer -= price
 		print("mmm health");
 	elif shop == "Speed" and _check_kromer(price):
-		manager.speed += 1;
-		manager.kromer -= price
+		DungeonManager.speed += 1;
+		DungeonManager.kromer -= price
 		print("nyoom");	
 	elif shop == "Haste" and _check_kromer(price):
-		manager.haste += 1;
-		manager.kromer -= price
+		DungeonManager.haste += 1;
+		DungeonManager.kromer -= price
 		print("I'm fast as fuck boi");
 	elif shop == "Damage" and _check_kromer(price):
-		manager.damage += 1;
-		manager.kromer -= price
+		DungeonManager.damage += 1;
+		DungeonManager.kromer -= price
 		print("Yeouch");	
 	elif shop == "":
 		print("Not in a shop");
@@ -118,6 +117,7 @@ func _on_damage_area_body_exited(body):
 
 func _on_cat_area_body_entered(body):
 	if body.is_in_group("player"):
+		DungeonManager.CurrentState = DungeonManager.Type.COMBAT
 		print("the cat is ready");
 		can_pet_cat = true;
 
