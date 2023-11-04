@@ -47,4 +47,10 @@ func _physics_process(delta):
 func _on_melee_swing_area_entered(area):
 	if area.is_in_group("enemy"):
 		#area.take_damage(damage)
-		print("hit")
+		get_tree().call_group("enemy", "take_damage")
+		print("took damage")
+		#if area.has_method("take_damage"):
+			#area.take_damage(damage)
+			#print("hit")
+	else:
+		print("cannot take damage")
