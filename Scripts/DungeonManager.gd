@@ -10,7 +10,7 @@ var DungeonTShape = load("res://Scenes/DungeonLayouts/DungeonTShape.tscn")
 var DungeonConnector = load("res://Scenes/DungeonLayouts/DungeonConnector.tscn")
 var DungeonLeft = load("res://Scenes/DungeonLayouts/DungeonLeft.tscn")
 
-var Levels = ["DungeonLayouts/DungeonSquare","DungeonLayouts/DungeonTShape","DungeonLayouts/DungeonConnector","DungeonLayouts/DungeonLeft"]
+var Levels = ["DungeonLayouts/DungeonTShape","DungeonLayouts/DungeonConnector","DungeonLayouts/DungeonLeft","DungeonLayouts/DungeonSquare"]
 var levelNum = 0
 var speed = 200
 var max_health = 50
@@ -20,6 +20,7 @@ var damage = 1
 var kromer = 0
 var Enemies;
 var pickup_instance;
+
 
 #Scene Stuff
 var scene_to_load
@@ -35,11 +36,13 @@ enum Type {
 	MAINMENU
 }
 
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	var player = get_tree().get_first_node_in_group("player")
 	Enemies = get_tree().get_nodes_in_group("enemy")
 	ui = get_tree().get_first_node_in_group("UI");
+	print(ui)
 
 
 
@@ -47,11 +50,14 @@ func _ready():
 func _process(delta):
 	ui = get_tree().get_first_node_in_group("UI");
 	Enemies = get_tree().get_nodes_in_group("enemy")
-	
-	print(CurrentState)
+	if(ui):	
+		ui.get_node("Coins/CoinsLabel").text = str(kromer);
+		ui.get_node("Health/HealthBar").max_value = max_health;
+		ui.get_node("Health/HealthBar").value = health;
+
+	#print(CurrentState)
 	if(Enemies.size()<=0 &&CurrentState==Type.COMBAT):
-		print("Done!")
-		if(levelNum>=3):
+		if(levelNum>=4):
 			load_level("Menus/EndScreen")
 			return
 		var levelpath = Levels[levelNum]
