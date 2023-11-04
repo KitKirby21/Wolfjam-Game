@@ -1,10 +1,11 @@
 extends CharacterBody2D
 
 @export var SPEED = 200
-
+var stun_timer = 0
 var health = 5
 
 enum State {
+	STUN,
 	PATROL,
 	ENGAGE
 }
@@ -32,6 +33,13 @@ func _ready():
 
 func _physics_process(delta):
 	match current_state:
+		State.STUN:
+			stun_timer -= delta
+			if stun_timer <= 0:
+				if player:
+					current_state = State.ENGAGE
+				else:
+					current_state = State.PATROL
 		State.PATROL:
 			move(current_position.position, delta)
 			if global_position.distance_to(current_position.position) < 10:
@@ -48,7 +56,8 @@ func move(target, delta):
 
 func take_damage(dmg):
 	health -= dmg
-	velocity = velocity
+	current_state = State.STUN
+	stun_timer = 0.1
 	print(health)
 	if health <= 0:
 		DungeonManager._chanceDrop(global_position)
