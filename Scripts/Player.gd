@@ -23,13 +23,14 @@ func _get_input():
 		shoot()
 	if Input.is_action_just_pressed("swing"):
 		#print(self.position)
-		anim_player.play("Swing")
+		anim_player.play("swing")
 
 func shoot():
 	var bullet_instance = Bullet.instantiate()
 	var target = get_global_mouse_position()
 	var direction = gun_end.global_position.direction_to(target).normalized()
 	BulletManager.bullet_spawned(bullet_instance, gun_end.global_position, direction, true)
+	anim_player.play("shoot")
 
 func _physics_process(delta):
 	_get_input()
@@ -39,6 +40,7 @@ func _physics_process(delta):
 
 func take_damage(dmg):
 	DungeonManager.health -= dmg
+	anim_player.play("take_damage")
 	print(DungeonManager.health)
 	if DungeonManager.health <= 0:
 		DungeonManager.health = 0
