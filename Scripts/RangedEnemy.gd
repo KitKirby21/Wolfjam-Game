@@ -22,8 +22,8 @@ func _physics_process(delta):
 		State.ENGAGE:
 			#Move away from the player if it's too close
 			distance_to_player =  self.position - player.position;
-			if distance_to_player.length() < 500:
-				move(-distance_to_player, delta);
+			if distance_to_player.length() < 350:
+				move(self.position + player.position, delta);
 				get_next_position();
 			
 			if shoot_cooldown == 0:
