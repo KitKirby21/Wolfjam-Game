@@ -74,6 +74,8 @@ func get_next_position():
 	current_position = temp_positions.pop_front()
 
 func patrol(delta):
+	if !marker_group_name:
+		return
 	move(current_position.position, delta)
 	if global_position.distance_to(current_position.position) < 10:
 		get_next_position()
