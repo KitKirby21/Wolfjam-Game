@@ -68,6 +68,7 @@ func stun_process(delta):
 			current_state = State.PATROL
 			
 func cat_timer_process(delta):
+	print(cat_timer)
 	cat_timer -= delta
 	
 func get_positions():
@@ -106,8 +107,9 @@ func _on_hitbox_area_entered(area):
 	
 	#why the fuck does this never get called when uncommented
 	if area.is_in_group("CatAttack"):
-		#print("meow")
+		print("meow")
 		#print(area.name)
-		if cat_timer == 0:
+		take_damage(1)
+		if cat_timer <= 0:
 			cat_timer = randf_range(2,4)
-			take_damage(5)
+			take_damage(1)
