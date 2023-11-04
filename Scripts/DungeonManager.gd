@@ -2,7 +2,6 @@ extends Node
 
 #Get References to Zombie group
 var pickup = load("res://Scenes/pickup.tscn")
-@onready var ui;
 
 var speed = 200
 var max_health = 50
@@ -18,16 +17,13 @@ func _ready():
 	
 	var player = get_tree().get_first_node_in_group("player")
 	Enemies = get_tree().get_nodes_in_group("enemy")
-	ui = get_tree().get_first_node_in_group("UI");
+
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	ui = get_tree().get_first_node_in_group("UI");
 	Enemies = get_tree().get_nodes_in_group("enemy")
-	if(Enemies.size()<=0 and get_tree().current_scene.name != "Cafe"):
-		get_tree().change_scene_to_file("res://Scenes/Cafe.tscn")		
-		ui = get_tree().get_first_node_in_group("UI");
-	ui.get_node("Coins/CoinsLabel").text = str(kromer);		
+	if(Enemies.size()<=0):
+		get_tree().change_scene_to_file("res://Scenes/Cafe.tscn")
 	
 func _chanceDrop(position):
 	pickup_instance = pickup.instantiate()

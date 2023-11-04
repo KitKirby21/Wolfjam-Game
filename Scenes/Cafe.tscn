@@ -1,9 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://cm8erptmmfk43"]
+[gd_scene load_steps=6 format=3 uid="uid://cm8erptmmfk43"]
 
 [ext_resource type="Script" path="res://Scripts/Cafe.gd" id="1_2tq0t"]
 [ext_resource type="PackedScene" uid="uid://clm0appmkyrgr" path="res://Scenes/Player.tscn" id="2_igbpp"]
 [ext_resource type="Script" path="res://Scripts/DungeonManager.gd" id="3_xqovp"]
-[ext_resource type="PackedScene" uid="uid://ctkh20mmnatme" path="res://Scenes/UI.tscn" id="4_s306c"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_06rml"]
 
@@ -63,12 +62,6 @@ scale = Vector2(1.018, 1)
 
 [node name="DungeonManager" type="Node2D" parent="."]
 script = ExtResource("3_xqovp")
-
-[node name="UI" parent="." groups=["UI"] instance=ExtResource("4_s306c")]
-offset_left = 562.0
-offset_top = 308.0
-offset_right = 562.0
-offset_bottom = 308.0
 
 [connection signal="body_entered" from="HealthArea" to="." method="_on_health_area_body_entered"]
 [connection signal="body_exited" from="HealthArea" to="." method="_on_health_area_body_exited"]
