@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 [gd_scene load_steps=3 format=3 uid="uid://b716n5eevuyyr"]
 
 [ext_resource type="Script" path="res://Scripts/Main.gd" id="1_ut7xm"]
@@ -8,3 +9,13 @@ script = ExtResource("1_ut7xm")
 
 [node name="BulletManager" type="Node2D" parent="."]
 script = ExtResource("2_sptwv")
+=======
+[gd_scene load_steps=2 format=3 uid="uid://b716n5eevuyyr"]
+
+[ext_resource type="PackedScene" uid="uid://clm0appmkyrgr" path="res://Scenes/Player.tscn" id="1_cth53"]
+
+[node name="Main" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_cth53")]
+position = Vector2(387.645, 64.0834)
+>>>>>>> Stashed changes
