@@ -29,7 +29,7 @@ func shoot():
 	var bullet_instance = Bullet.instantiate()
 	var target = get_global_mouse_position()
 	var direction = gun_end.global_position.direction_to(target).normalized()
-	BulletManager.bullet_spawned(bullet_instance, gun_end.global_position, direction)
+	BulletManager.bullet_spawned(bullet_instance, gun_end.global_position, direction, true)
 
 func _physics_process(delta):
 	_get_input()
