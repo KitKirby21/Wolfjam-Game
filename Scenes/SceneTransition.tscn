@@ -2,21 +2,6 @@
 
 [ext_resource type="Script" path="res://Scripts/SceneTransition.gd" id="1_bb4sv"]
 
-[sub_resource type="Animation" id="Animation_413qi"]
-resource_name = "Reset"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("dissolve_rect:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 0)]
-}
-
 [sub_resource type="Animation" id="Animation_xkprw"]
 resource_name = "Dissolve"
 length = 0.5
@@ -35,6 +20,21 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_dahld"]
 length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("dissolve_rect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_413qi"]
+resource_name = "Reset"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
