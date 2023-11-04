@@ -60,5 +60,6 @@ func _on_melee_swing_area_entered(area):
 
 func _on_hitbox_area_entered(area):
 	if area.is_in_group("bullet"):
-		if !area.can_damage_enemies:
+		if area.can_damage_enemies == false:
 			take_damage(area.bullet_damage)
+			area.queue_free()
