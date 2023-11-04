@@ -30,6 +30,8 @@ func _get_input():
 	look_at(get_global_mouse_position())
 	if Input.is_action_just_pressed("shoot"):
 		shoot()
+	if Input.is_action_just_pressed("swing"):
+		anim_player.play("Swing")
 
 func shoot():
 	var bullet_instance = Bullet.instantiate()
@@ -40,3 +42,8 @@ func shoot():
 func _physics_process(delta):
 	_get_input()
 	move_and_slide()
+
+#melee hit detection
+func _on_melee_swing_area_entered(area):
+	if area.is_in_group("enemy"):
+		print("enemy hit")

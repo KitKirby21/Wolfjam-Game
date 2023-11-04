@@ -1,8 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://d10ktlmsdcynj"]
+[gd_scene load_steps=5 format=3 uid="uid://d10ktlmsdcynj"]
 
 [ext_resource type="Script" path="res://Scripts/Enemy.gd" id="1_l1kho"]
 [ext_resource type="Texture2D" uid="uid://c07vxxl6sykhv" path="res://icon.svg" id="2_8ntag"]
-[ext_resource type="Script" path="res://Scripts/EnemyAI.gd" id="3_aetql"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_scf3i"]
 size = Vector2(32, 32)
@@ -10,7 +9,9 @@ size = Vector2(32, 32)
 [sub_resource type="CircleShape2D" id="CircleShape2D_patb3"]
 radius = 128.0
 
-[node name="Enemy" type="CharacterBody2D"]
+[node name="Enemy" type="CharacterBody2D" groups=["enemy"]]
+collision_layer = 4
+collision_mask = 4
 script = ExtResource("1_l1kho")
 metadata/_edit_group_ = true
 
@@ -21,13 +22,20 @@ texture = ExtResource("2_8ntag")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_scf3i")
 
-[node name="AI" type="Node2D" parent="."]
-script = ExtResource("3_aetql")
+[node name="PlayerDetectionZone" type="Area2D" parent="." groups=["enemy"]]
+collision_layer = 5
+collision_mask = 5
 
-[node name="PlayerDetectionZone" type="Area2D" parent="AI" groups=["enemy"]]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="AI/PlayerDetectionZone"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetectionZone"]
 shape = SubResource("CircleShape2D_patb3")
 
-[connection signal="body_entered" from="AI/PlayerDetectionZone" to="AI" method="_on_player_detection_zone_body_entered"]
-[connection signal="body_exited" from="AI/PlayerDetectionZone" to="AI" method="_on_player_detection_zone_body_exited"]
+[node name="Hitbox" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+shape = SubResource("RectangleShape2D_scf3i")
+
+[connection signal="body_entered" from="PlayerDetectionZone" to="." method="_on_player_detection_zone_body_entered"]
+[connection signal="body_exited" from="PlayerDetectionZone" to="." method="_on_player_detection_zone_body_exited"]
+[connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]
