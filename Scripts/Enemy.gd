@@ -10,7 +10,6 @@ enum State {
 }
 
 @onready var player_detection_zone = $PlayerDetectionZone
-signal died
 
 var current_state:int = State.PATROL:
 	get:
