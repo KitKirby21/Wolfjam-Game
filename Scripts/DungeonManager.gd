@@ -10,8 +10,8 @@ var DungeonTShape = load("res://Scenes/DungeonLayouts/DungeonTShape.tscn")
 var DungeonConnector = load("res://Scenes/DungeonLayouts/DungeonConnector.tscn")
 var DungeonLeft = load("res://Scenes/DungeonLayouts/DungeonLeft.tscn")
 
-var Levels = [DungeonSquare,DungeonTShape,DungeonConnector,DungeonLeft]
-
+var Levels = ["DungeonLayouts/DungeonSquare","DungeonLayouts/DungeonTShape","DungeonLayouts/DungeonConnector","DungeonLayouts/DungeonLeft"]
+var levelNum = 0
 var speed = 200
 var max_health = 50
 var health = 49
@@ -51,7 +51,14 @@ func _process(delta):
 	print(CurrentState)
 	if(Enemies.size()<=0 &&CurrentState==Type.COMBAT):
 		print("Done!")
-		load_level("DungeonLayouts/DungeonTShape")
+		if(levelNum>=3):
+			load_level("Menus/EndScreen")
+			return
+		var levelpath = Levels[levelNum]
+		for pickup in get_tree().get_nodes_in_group("pickup"):
+			pickup.visible=false
+		load_level(levelpath)
+		levelNum+=1
 	
 
 func unload_level():

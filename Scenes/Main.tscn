@@ -1,18 +1,13 @@
-[gd_scene load_steps=7 format=3 uid="uid://b716n5eevuyyr"]
+[gd_scene load_steps=6 format=3 uid="uid://b716n5eevuyyr"]
 
 [ext_resource type="Script" path="res://Scripts/Main.gd" id="1_ut7xm"]
 [ext_resource type="Script" path="res://Scripts/BulletManager.gd" id="2_sptwv"]
-[ext_resource type="PackedScene" uid="uid://civreqnhpit2w" path="res://Scenes/Player.tscn" id="2_w4hbu"]
 [ext_resource type="PackedScene" uid="uid://hinrjop3j4fu" path="res://Scenes/DungeonLayouts/DungeonSquare.tscn" id="5_jhc8h"]
 [ext_resource type="PackedScene" uid="uid://d10ktlmsdcynj" path="res://Scenes/MeleeEnemy.tscn" id="6_6blwd"]
 [ext_resource type="PackedScene" uid="uid://cx1p2bkgdtrjm" path="res://Scenes/RangedEnemy.tscn" id="6_mhxft"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_ut7xm")
-
-[node name="Player" parent="." instance=ExtResource("2_w4hbu")]
-position = Vector2(128, 200)
-scale = Vector2(1.527, 1.5)
 
 [node name="BulletManager" type="Node2D" parent="."]
 z_index = 3
