@@ -21,15 +21,8 @@ BulletManager="*res://Scripts/BulletManager.gd"
 
 [display]
 
-<<<<<<< HEAD
-window/size/viewport_width=1104
-window/size/viewport_height=624
-window/size/window_width_override=1920
-window/size/window_height_override=1080
-=======
 window/size/viewport_width=640
 window/size/viewport_height=480
->>>>>>> 76f9f73251c7fb87bad2cd4a5e98cb65975166fc
 window/stretch/mode="viewport"
 
 [input]
