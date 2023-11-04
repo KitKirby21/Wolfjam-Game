@@ -6,7 +6,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1qh7j"]
 size = Vector2(72.5, 35.5313)
 
-[node name="Bullet" type="Area2D"]
+[node name="Bullet" type="Area2D" groups=["bullet"]]
 collision_layer = 4
 collision_mask = 4
 script = ExtResource("1_x3jy2")
