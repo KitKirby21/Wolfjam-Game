@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 signal shot(bullet, position, direction)
 
+var cat_timer = 0
 
 @export var can_move = true
 
@@ -35,8 +36,11 @@ func shoot():
 func _physics_process(delta):
 	_get_input()
 	move_and_slide()
+	cat_timer_process(delta)
 
-
+func cat_timer_process(delta):
+	#print(cat_timer)
+	cat_timer -= delta
 
 func take_damage(dmg):
 	DungeonManager.health -= dmg
@@ -61,3 +65,7 @@ func _on_melee_swing_body_entered(body):
 		#if area.has_method("take_damage"):
 			#area.take_damage(damage)
 			#print("hit")
+			
+func cat_attack(body):
+	if body.is_in_group("enemy"):
+		body.take_damage(DungeonManager.damage)
