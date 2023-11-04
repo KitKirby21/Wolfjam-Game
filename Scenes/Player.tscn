@@ -112,7 +112,7 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2e58j"]
-size = Vector2(76.9634, 47.6442)
+size = Vector2(76.9634, 28.6232)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2peja"]
 size = Vector2(32.1301, 32.199)
@@ -212,7 +212,7 @@ collision_layer = 4
 collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/MeleeSwing"]
-position = Vector2(-2.2898, 43.2349)
+position = Vector2(-2.2898, 33.7244)
 shape = SubResource("RectangleShape2D_2e58j")
 disabled = true
 
@@ -260,7 +260,7 @@ shape = SubResource("RectangleShape2D_o6cfb")
 [node name="Camera2D" type="Camera2D" parent="."]
 limit_left = -50
 limit_top = 0
-limit_right = 2000
+limit_right = 1200
 limit_bottom = 400
 
 [connection signal="body_entered" from="Sprite2D/MeleeSwing" to="." method="_on_melee_swing_body_entered"]
