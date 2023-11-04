@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_2c0h6"]
 [ext_resource type="PackedScene" uid="uid://bmpwgerfwfoop" path="res://Scenes/Bullet.tscn" id="2_bwqwu"]
-[ext_resource type="Texture2D" uid="uid://b6oqwyk8xtren" path="res://Resources/Textures/cat.png" id="2_ep6nn"]
+[ext_resource type="Texture2D" uid="uid://d0amxov3s6xt3" path="res://Resources/Textures/cat.png" id="2_ep6nn"]
 
 [sub_resource type="Animation" id="Animation_uusvs"]
 length = 0.001
@@ -48,6 +48,7 @@ size = Vector2(182.62, 190.577)
 size = Vector2(41.8203, 42)
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
+z_index = 3
 scale = Vector2(3.89043, 3.82)
 collision_layer = 4
 collision_mask = 4
@@ -55,6 +56,7 @@ script = ExtResource("1_2c0h6")
 Bullet = ExtResource("2_bwqwu")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = 3
 position = Vector2(-0.0908748, 5.70195e-07)
 scale = Vector2(0.158366, 0.164834)
 texture = ExtResource("2_ep6nn")
@@ -72,10 +74,12 @@ shape = SubResource("RectangleShape2D_2e58j")
 disabled = true
 
 [node name="PlayerCollision" type="CollisionShape2D" parent="."]
+z_index = 30
 position = Vector2(-0.089839, 0)
 shape = SubResource("RectangleShape2D_2peja")
 
 [node name="GunEnd" type="Node2D" parent="."]
+z_index = 3
 position = Vector2(22.8766, -4.97382)
 
 [connection signal="area_entered" from="Sprite2D/MeleeSwing" to="." method="_on_melee_swing_area_entered"]
