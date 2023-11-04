@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 [gd_scene load_steps=10 format=3 uid="uid://clm0appmkyrgr"]
+=======
+[gd_scene load_steps=17 format=3 uid="uid://clm0appmkyrgr"]
+>>>>>>> f6783d032718ca6b27ebafe36b73c406cad5aa29
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_2c0h6"]
 [ext_resource type="PackedScene" uid="uid://bmpwgerfwfoop" path="res://Scenes/Bullet.tscn" id="2_bwqwu"]
@@ -18,6 +22,49 @@ tracks/0/keys = {
 "update": 1,
 "values": [true]
 }
+<<<<<<< HEAD
+=======
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_7rb8f"]
+resource_name = "shoot"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [4, 5, 4]
+}
+>>>>>>> f6783d032718ca6b27ebafe36b73c406cad5aa29
 
 [sub_resource type="Animation" id="Animation_sg5pk"]
 resource_name = "Swing"
@@ -35,6 +82,21 @@ tracks/0/keys = {
 "values": [true, false, true]
 }
 
+[sub_resource type="Animation" id="Animation_cpbs7"]
+resource_name = "take_damage"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0.878431, 0.203922, 0.0941176, 1), Color(1, 1, 1, 1)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_qugtr"]
 _data = {
 "RESET": SubResource("Animation_uusvs"),
@@ -47,8 +109,76 @@ size = Vector2(57.2786, 41.824)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2peja"]
 size = Vector2(32.1301, 32.199)
 
+<<<<<<< HEAD
+=======
+[sub_resource type="Animation" id="Animation_fnlo7"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CatAttack/CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_f2mf2"]
+resource_name = "cat_slap"
+length = 0.12
+step = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.02, 0.04, 0.06, 0.08, 0.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CatAttack/CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.04, 0.12),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, false, true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ht11t"]
+_data = {
+"RESET": SubResource("Animation_fnlo7"),
+"cat_slap": SubResource("Animation_f2mf2")
+}
+
+>>>>>>> f6783d032718ca6b27ebafe36b73c406cad5aa29
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_54cv8"]
 size = Vector2(38.0421, 33.2461)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o6cfb"]
+size = Vector2(32.9012, 33.5079)
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 z_index = 3
@@ -100,5 +230,13 @@ collision_mask = 4
 position = Vector2(-16.9647, 41.2304)
 shape = SubResource("RectangleShape2D_54cv8")
 
+[node name="Hitbox" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2(0, 4.99306e-07)
+scale = Vector2(1, 1.00311)
+shape = SubResource("RectangleShape2D_o6cfb")
 [connection signal="area_entered" from="Sprite2D/MeleeSwing" to="." method="_on_melee_swing_area_entered"]
 [connection signal="area_entered" from="Sprite2D2/CatAttack" to="." method="_on_cat_attack_area_entered"]

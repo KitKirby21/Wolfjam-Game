@@ -13,16 +13,17 @@ signal shot(bullet, position, direction)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	pass
+
+func _get_input():
+	var input_direction = Input.get_vector("moveLeft", "moveRight", "moveUp", "moveDown")
+	velocity = input_direction * DungeonManager.speed
 	look_at(get_global_mouse_position())
 	if Input.is_action_just_pressed("shoot"):
 		shoot()
 	if Input.is_action_just_pressed("swing"):
 		#print(self.position)
 		anim_player.play("swing")
-
-func _get_input():
-	var input_direction = Input.get_vector("moveLeft", "moveRight", "moveUp", "moveDown")
-	velocity = input_direction * DungeonManager.speed
 
 func shoot():
 	var bullet_instance = Bullet.instantiate()
@@ -38,9 +39,12 @@ func _physics_process(delta):
 
 
 func take_damage(dmg):
+	DungeonManager.health -= dmg
 	anim_player.play("take_damage")
-	print(dmg)
-
+	print(DungeonManager.health)
+	if DungeonManager.health <= 0:
+		DungeonManager.health = 0
+		get_tree().change_scene_to_file("res://Scenes/Menus/DeathScreen.tscn")
 
 #melee hit detection
 func _on_melee_swing_area_entered(area):
@@ -54,3 +58,10 @@ func _on_melee_swing_area_entered(area):
 			#print("hit")
 	else:
 		print("cannot take damage")
+
+
+func _on_hitbox_area_entered(area):
+	if area.is_in_group("bullet"):
+		if area.can_damage_enemies == false:
+			take_damage(area.bullet_damage)
+			area.queue_free()
