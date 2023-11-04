@@ -48,4 +48,3 @@ func _on_player_detection_zone_body_exited(body):
 func _on_hitbox_body_entered(body):
 	if body.is_in_group("bullet"):
 		health -= body.damage
-		pass # Replace with function body.
