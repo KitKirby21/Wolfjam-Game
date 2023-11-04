@@ -112,7 +112,7 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2e58j"]
-size = Vector2(76.9634, 28.6232)
+size = Vector2(76.9634, 47.6442)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2peja"]
 size = Vector2(32.1301, 32.199)
@@ -212,7 +212,7 @@ collision_layer = 4
 collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/MeleeSwing"]
-position = Vector2(-2.2898, 33.7244)
+position = Vector2(-2.2898, 43.2349)
 shape = SubResource("RectangleShape2D_2e58j")
 disabled = true
 
