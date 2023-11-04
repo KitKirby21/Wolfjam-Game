@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://qh1gtmxsh0wd" path="res://Resources/Textures/Enemies_Spritesheet.png" id="2_vgb0q"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pn4vj"]
-size = Vector2(48, 64)
+size = Vector2(51.7241, 64)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_patb3"]
 radius = 256.125
@@ -318,6 +318,7 @@ vframes = 10
 frame = 12
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(0.928, 1.00781)
 shape = SubResource("RectangleShape2D_pn4vj")
 
 [node name="PlayerDetectionZone" type="Area2D" parent="."]
