@@ -4,6 +4,8 @@ extends CharacterBody2D
 
 @export var can_move = true
 
+@export var Bullet: PackedScene
+
 @onready var anim_player = $Sprite2D/AnimationPlayer
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -18,7 +20,8 @@ func _get_input():
 		shoot()
 
 func shoot():
-	print("bang")
+	var bullet_instance = Bullet.instance()
+	add_child(bullet_instance)
 
 func _physics_process(delta):
 	_get_input()

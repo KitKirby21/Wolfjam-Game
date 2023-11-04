@@ -1,16 +1,22 @@
-[gd_scene load_steps=4 format=3 uid="uid://clm0appmkyrgr"]
+[gd_scene load_steps=5 format=3 uid="uid://clm0appmkyrgr"]
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_2c0h6"]
+[ext_resource type="PackedScene" uid="uid://bmpwgerfwfoop" path="res://Scenes/Bullet.tscn" id="2_bwqwu"]
 [ext_resource type="Texture2D" uid="uid://d0amxov3s6xt3" path="res://Resources/Textures/cat.png" id="2_ep6nn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2peja"]
+size = Vector2(42, 42)
 
 [node name="Player" type="CharacterBody2D"]
+collision_layer = 4
+collision_mask = 4
 script = ExtResource("1_2c0h6")
+Bullet = ExtResource("2_bwqwu")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1.90735e-06, 0)
 rotation = 1.57079
-scale = Vector2(0.0721698, 0.0777559)
+scale = Vector2(0.158366, 0.16555)
 texture = ExtResource("2_ep6nn")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite2D"]
