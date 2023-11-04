@@ -13,8 +13,13 @@ func _process(delta):
 
 
 func _on_start_button_pressed():
-	get_tree().change_scene_to_file("res://Scenes/Cafe.tscn")
-	DungeonManager.CurrentState = DungeonManager.Level.CAFE
+	DungeonManager.load_level("Main")
+	DungeonManager.CurrentState = DungeonManager.Type.COMBAT
+	#var scene = load("res://Scenes/DungeonLayouts/DungeonSquare.tscn")
+	#var instance = scene.instantiate()
+	#get_tree().addchild(instance)
+	#get_tree().change_scene_to_file("res://Scenes/Cafe.tscn")
+
 	
 
 
@@ -24,3 +29,7 @@ func _on_controls_button_pressed():
 
 func _on_quit_button_pressed():
 	get_tree().quit()
+
+#play meow here
+func _on_cat_pressed():
+	pass # Replace with function body.

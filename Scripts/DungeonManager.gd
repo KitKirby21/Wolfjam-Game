@@ -1,4 +1,4 @@
-extends Node
+extends Node2D
 
 #Get References to Zombie group
 var pickup = load("res://Scenes/pickup.tscn")
@@ -21,12 +21,18 @@ var kromer = 0
 var Enemies;
 var pickup_instance;
 
+#Scene Stuff
+var scene_to_load
+
+
+var level_instance;
+
 var LevelsCompleted = 0;
 var CurrentState;
 
 enum Type {
 	COMBAT,
-	CAFE
+	MAINMENU
 }
 
 # Called when the node enters the scene tree for the first time.
@@ -41,12 +47,26 @@ func _ready():
 func _process(delta):
 	ui = get_tree().get_first_node_in_group("UI");
 	Enemies = get_tree().get_nodes_in_group("enemy")
-	if(DungeonManager.CurrentState==DungeonManager.Type.COMBAT):
-		get_tree().change_scene_to_packed(Levels[0])
-		
-	if(Enemies.size()<=0 && Type.COMBAT):
-		#get_tree().change_scene_to_file("res://Scenes/Cafe.tscn")
-		return
+	
+	print(CurrentState)
+	if(Enemies.size()<=0 &&CurrentState==Type.COMBAT):
+		print("Done!")
+		load_level("DungeonLayouts/DungeonTShape")
+	
+
+func unload_level():
+	if(is_instance_valid(level_instance)):
+		level_instance.queue_free()
+		level_instance = null
+
+func load_level(level_name : String):
+	unload_level()
+	var level_path = "res://Scenes/%s.tscn" % level_name
+	print(level_path)
+	scene_to_load = load(level_path)
+	level_instance = scene_to_load.instantiate()
+	#levels.add_child(level_instance)
+	get_tree().change_scene_to_packed(scene_to_load)
 	
 func _chanceDrop(position):
 	pickup_instance = pickup.instantiate()

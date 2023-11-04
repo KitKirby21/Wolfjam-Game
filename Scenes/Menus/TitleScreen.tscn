@@ -3,8 +3,8 @@
 [ext_resource type="Script" path="res://Scripts/TitleScreen.gd" id="1_msqbp"]
 [ext_resource type="Texture2D" uid="uid://dor2dtsq6fl3w" path="res://Resources/Textures/Start_Screen.png" id="2_avpsb"]
 [ext_resource type="Theme" uid="uid://6n1isnwcl482" path="res://Resources/TextThemes/NormalTextTheme.tres" id="2_h6ajs"]
-[ext_resource type="Texture2D" uid="uid://c063pw57n40ta" path="res://Resources/Textures/Start_Button.png" id="4_88dcj"]
-[ext_resource type="Texture2D" uid="uid://dm5oel6dkh0mj" path="res://Resources/Textures/Options_Button.png" id="5_k3cgy"]
+[ext_resource type="Texture2D" uid="uid://5saxbm3gmpa1" path="res://Resources/Textures/Start_Button.png" id="4_88dcj"]
+[ext_resource type="Texture2D" uid="uid://qa8f5jjchvja" path="res://Resources/Textures/Options_Button.png" id="5_k3cgy"]
 [ext_resource type="Texture2D" uid="uid://btbtnmwoejq2s" path="res://Resources/Textures/Quit_Button.png" id="6_od4m2"]
 [ext_resource type="Texture2D" uid="uid://cuvxhoiffq117" path="res://Resources/Textures/cat_idle-Sheet.png" id="7_eqd1s"]
 
@@ -94,12 +94,19 @@ theme = ExtResource("2_h6ajs")
 icon = ExtResource("6_od4m2")
 expand_icon = true
 
-[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer"]
-position = Vector2(749, 436)
+[node name="Cat" type="Button" parent="CanvasLayer"]
+offset_left = 717.0
+offset_top = 409.0
+offset_right = 777.0
+offset_bottom = 465.0
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/Cat"]
+position = Vector2(29, 28)
+scale = Vector2(0.875, 0.859375)
 texture = ExtResource("7_eqd1s")
 hframes = 2
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/Sprite2D"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/Cat/Sprite2D"]
 libraries = {
 "": SubResource("AnimationLibrary_jpafs")
 }
@@ -107,3 +114,4 @@ libraries = {
 [connection signal="pressed" from="CanvasLayer/StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/ControlsButton" to="." method="_on_controls_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/Cat" to="." method="_on_cat_pressed"]
