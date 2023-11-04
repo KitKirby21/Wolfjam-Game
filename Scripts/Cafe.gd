@@ -1,6 +1,7 @@
 extends Node2D
 
 @onready var player = get_tree().get_first_node_in_group("player")
+@onready var manager = $DungeonManager;
 
 @onready var health_area = $HealthArea;
 @onready var speed_area = $SpeedArea;
@@ -21,29 +22,28 @@ func _ready():
 func _process(delta):
 	#_check_shop_update(player);
 	if Input.is_action_just_pressed("Interact"):
-		_buy(current_shop, 10);
-	
+		_buy(current_shop, 10);	
 	pass
 
 
 	
 	#checks the player's current money
 func _check_kromer(required_kromer):
-	if player.kromer < required_kromer: return false;
+	if manager.kromer < required_kromer: return false;
 	else: return true;
 	
 func _buy(shop, price):
 	if shop == "Health" and _check_kromer(price):
-		player.health += 1;
+		manager.health += 1;
 		print("mmm health");
 	if shop == "Speed" and _check_kromer(price):
-		player.speed += 1;
+		manager.speed += 1;
 		print("nyoom");	
 	if shop == "Haste" and _check_kromer(price):
-		player.haste += 1;
+		manager.haste += 1;
 		print("I'm fast as fuck boi");
 	if shop == "Damage" and _check_kromer(price):
-		player.damage += 1;
+		manager.damage += 1;
 		print("Yeouch");
 	if shop == "":
 		print("Not in a shop");

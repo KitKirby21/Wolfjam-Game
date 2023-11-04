@@ -109,7 +109,6 @@ func _on_hitbox_area_entered(area):
 	if area.is_in_group("CatAttack"):
 		print("meow")
 		#print(area.name)
-		take_damage(1)
 		if cat_timer <= 0:
 			cat_timer = randf_range(2,4)
 			take_damage(1)
