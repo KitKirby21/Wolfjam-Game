@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://clm0appmkyrgr"]
+[gd_scene load_steps=10 format=3 uid="uid://clm0appmkyrgr"]
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_2c0h6"]
 [ext_resource type="PackedScene" uid="uid://bmpwgerfwfoop" path="res://Scenes/Bullet.tscn" id="2_bwqwu"]
@@ -47,6 +47,9 @@ size = Vector2(182.62, 190.577)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2peja"]
 size = Vector2(41.8203, 42)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_54cv8"]
+size = Vector2(40.8449, 83.2984)
+
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 z_index = 3
 scale = Vector2(3.89043, 3.82)
@@ -81,5 +84,12 @@ shape = SubResource("RectangleShape2D_2peja")
 [node name="GunEnd" type="Node2D" parent="."]
 z_index = 3
 position = Vector2(22.8766, -4.97382)
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(-22.6196, -41.8848)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-18.5069, 41.8848)
+shape = SubResource("RectangleShape2D_54cv8")
 
 [connection signal="area_entered" from="Sprite2D/MeleeSwing" to="." method="_on_melee_swing_area_entered"]
