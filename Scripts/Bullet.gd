@@ -3,6 +3,7 @@ extends Area2D
 
 @export var bullet_speed: int = 20
 @export var bullet_damage = 1
+var bullet_timer = 5;
 var can_damage_enemies = true;
 
 var direction :=Vector2.ZERO
@@ -20,6 +21,9 @@ func _physics_process(delta):
 	if direction != Vector2.ZERO:
 		var velocity = direction * bullet_speed
 		global_position += velocity
+	bullet_timer -= delta
+	if bullet_timer <= 0:
+		queue_free()
 
 func set_direction(direction: Vector2):
 	self.direction = direction;

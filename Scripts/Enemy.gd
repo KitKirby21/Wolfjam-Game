@@ -89,7 +89,7 @@ func patrol(delta):
 
 func _on_player_detection_zone_body_entered(body):
 	if body.is_in_group("player"):
-		print("Entered")
+		#print("Entered")
 		current_state = State.ENGAGE
 		player = body
 
@@ -104,6 +104,7 @@ func _on_hitbox_area_entered(area):
 	if area.is_in_group("bullet"):
 		if area.can_damage_enemies:
 			take_damage(area.bullet_damage)
+			area.queue_free()
 	
 	#why the fuck does this never get called when uncommented
 	if area.is_in_group("CatAttack"):
