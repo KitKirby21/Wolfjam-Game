@@ -1,0 +1,86 @@
+[gd_scene load_steps=9 format=3 uid="uid://bcldgwuluxweu"]
+
+[ext_resource type="Script" path="res://Scripts/Cafe.gd" id="1_nl6ax"]
+[ext_resource type="Texture2D" uid="uid://baficbe78ojha" path="res://Resources/Textures/Cafe_Screen.png" id="1_q6011"]
+[ext_resource type="Texture2D" uid="uid://b2v4l8ojkw441" path="res://Resources/Textures/health upgrade.png" id="3_w4jfn"]
+[ext_resource type="Texture2D" uid="uid://dnldt1jnpmuf7" path="res://Resources/Textures/haste upgrade.png" id="4_4w7lv"]
+[ext_resource type="Texture2D" uid="uid://o5623ymekc4b" path="res://Resources/Textures/damage upgrade.png" id="5_mop1g"]
+[ext_resource type="Texture2D" uid="uid://c06lutsydkxcy" path="res://Resources/Textures/speed upgrade.png" id="6_sht0h"]
+[ext_resource type="PackedScene" uid="uid://civreqnhpit2w" path="res://Scenes/Player.tscn" id="7_4e4kc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5qu5a"]
+size = Vector2(118.5, 308)
+
+[node name="Scenes" type="Node2D"]
+script = ExtResource("1_nl6ax")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(1.12674, 1.12674)
+texture = ExtResource("1_q6011")
+centered = false
+
+[node name="HealthArea" type="Area2D" parent="."]
+position = Vector2(491, 60)
+collision_layer = 5
+collision_mask = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HealthArea"]
+position = Vector2(1, 57)
+shape = SubResource("RectangleShape2D_5qu5a")
+
+[node name="Sprite2D" type="Sprite2D" parent="HealthArea"]
+position = Vector2(1, -16)
+texture = ExtResource("3_w4jfn")
+
+[node name="HasteArea" type="Area2D" parent="."]
+position = Vector2(296, 63)
+collision_layer = 5
+collision_mask = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HasteArea"]
+position = Vector2(0, 55)
+shape = SubResource("RectangleShape2D_5qu5a")
+
+[node name="Sprite2D" type="Sprite2D" parent="HasteArea"]
+position = Vector2(1, -23)
+texture = ExtResource("4_4w7lv")
+
+[node name="DamageArea" type="Area2D" parent="."]
+position = Vector2(99, 62)
+collision_layer = 5
+collision_mask = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DamageArea"]
+position = Vector2(4, 54)
+shape = SubResource("RectangleShape2D_5qu5a")
+
+[node name="Sprite2D" type="Sprite2D" parent="DamageArea"]
+position = Vector2(2, -21)
+texture = ExtResource("5_mop1g")
+
+[node name="SpeedArea" type="Area2D" parent="."]
+position = Vector2(660, 59)
+collision_layer = 5
+collision_mask = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SpeedArea"]
+position = Vector2(38, 56)
+shape = SubResource("RectangleShape2D_5qu5a")
+
+[node name="Sprite2D" type="Sprite2D" parent="SpeedArea"]
+position = Vector2(23, -9)
+rotation = 1.57289
+texture = ExtResource("6_sht0h")
+
+[node name="Player" parent="." instance=ExtResource("7_4e4kc")]
+position = Vector2(334, 515)
+scale = Vector2(1.018, 1)
+
+[connection signal="body_entered" from="HealthArea" to="." method="_on_health_area_body_entered"]
+[connection signal="body_exited" from="HealthArea" to="." method="_on_health_area_body_exited"]
+[connection signal="body_entered" from="HasteArea" to="." method="_on_haste_area_body_entered"]
+[connection signal="body_exited" from="HasteArea" to="." method="_on_haste_area_body_exited"]
+[connection signal="body_entered" from="DamageArea" to="." method="_on_damage_area_body_entered"]
+[connection signal="body_exited" from="DamageArea" to="." method="_on_damage_area_body_exited"]
+[connection signal="body_entered" from="SpeedArea" to="." method="_on_speed_area_body_entered"]
+[connection signal="body_exited" from="SpeedArea" to="." method="_on_speed_area_body_exited"]
