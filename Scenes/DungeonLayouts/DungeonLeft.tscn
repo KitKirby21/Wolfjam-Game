@@ -1,11 +1,14 @@
-[gd_scene load_steps=14 format=3 uid="uid://blxxwq2ukdmas"]
+[gd_scene load_steps=17 format=3 uid="uid://blxxwq2ukdmas"]
 
 [ext_resource type="Texture2D" uid="uid://bb7733ju4srun" path="res://Resources/Textures/TX Tileset Wall.png" id="1_h2gbf"]
 [ext_resource type="Texture2D" uid="uid://72u1uu6ogq14" path="res://Resources/Textures/TX Tileset Grass.png" id="2_2uhjf"]
 [ext_resource type="Texture2D" uid="uid://6far8t1bd2sm" path="res://Resources/Textures/TX Tileset Stone Ground.png" id="3_calkr"]
 [ext_resource type="Texture2D" uid="uid://v5608lvyqtj8" path="res://Resources/Textures/TX Tileset Stone Ground (Cracked).png" id="4_cft07"]
-[ext_resource type="Texture2D" uid="uid://c85lq5pswejsr" path="res://Resources/Textures/TX Struct.png" id="5_re2j4"]
+[ext_resource type="Texture2D" uid="uid://b8fd2kl16nrbv" path="res://Resources/Textures/TX Struct.png" id="5_re2j4"]
 [ext_resource type="Texture2D" uid="uid://crmndm7r8tltb" path="res://Resources/Textures/TX Props.png" id="6_1q8ij"]
+[ext_resource type="PackedScene" uid="uid://d10ktlmsdcynj" path="res://Scenes/MeleeEnemy.tscn" id="7_v8yla"]
+[ext_resource type="PackedScene" uid="uid://cx1p2bkgdtrjm" path="res://Scenes/RangedEnemy.tscn" id="8_nh8ry"]
+[ext_resource type="PackedScene" uid="uid://civreqnhpit2w" path="res://Scenes/Player.tscn" id="9_hx2o0"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1bk2c"]
 texture = ExtResource("1_h2gbf")
@@ -6103,3 +6106,69 @@ layer_2/y_sort_enabled = false
 layer_2/y_sort_origin = 0
 layer_2/z_index = 2
 layer_2/tile_data = PackedInt32Array(21, 1441798, 17, 65557, 1441798, 18, 131093, 1441798, 19, 196629, 1441798, 20, 22, 1507334, 17, 65558, 1507334, 18, 131094, 1507334, 19, 196630, 1507334, 20, 262166, 1507334, 21, -65513, 1572870, 16, 23, 1572870, 17, 65559, 1572870, 18, 131095, 1572870, 19, 196631, 1572870, 20, 262167, 1572870, 21, -65512, 1638406, 16, 24, 1638406, 17, 65560, 1638406, 18, 131096, 1638406, 19, 196632, 1638406, 20, 262168, 1638406, 21, 25, 1703942, 17, 65561, 1703942, 18, 131097, 1703942, 19, 196633, 1703942, 20, 262169, 1703942, 21, 26, 1769478, 17, 65562, 1769478, 18, 131098, 1769478, 19, 196634, 1769478, 20)
+
+[node name="MeleeEnemy" parent="." instance=ExtResource("7_v8yla")]
+position = Vector2(80, 408)
+marker_group_name = "mpatrol1"
+
+[node name="MEnemyPatrol" type="Marker2D" parent="." groups=["mpatrol1"]]
+position = Vector2(80, 192)
+
+[node name="MEnemyPatrol2" type="Marker2D" parent="." groups=["mpatrol1"]]
+position = Vector2(80, 472)
+
+[node name="MeleeEnemy2" parent="." instance=ExtResource("7_v8yla")]
+position = Vector2(188, 408)
+marker_group_name = "mpatrol2"
+
+[node name="MEnemy2Patrol" type="Marker2D" parent="." groups=["mpatrol2"]]
+position = Vector2(80, 560)
+
+[node name="MEnemy2Patrol2" type="Marker2D" parent="." groups=["mpatrol2"]]
+position = Vector2(296, 560)
+
+[node name="MEnemy2Patrol3" type="Marker2D" parent="." groups=["mpatrol2"]]
+position = Vector2(188, 472)
+
+[node name="MeleeEnemy3" parent="." instance=ExtResource("7_v8yla")]
+position = Vector2(296, 408)
+marker_group_name = "mpatrol3"
+
+[node name="MEnemy3Patrol" type="Marker2D" parent="." groups=["mpatrol3"]]
+position = Vector2(296, 192)
+
+[node name="MEnemy3Patrol2" type="Marker2D" parent="." groups=["mpatrol3"]]
+position = Vector2(296, 472)
+
+[node name="RangedEnemy" parent="." instance=ExtResource("8_nh8ry")]
+position = Vector2(528, 408)
+marker_group_name = "rpatrol1"
+
+[node name="REnemyPatrol" type="Marker2D" parent="." groups=["rpatrol1"]]
+position = Vector2(528, 576)
+
+[node name="REnemyPatrol2" type="Marker2D" parent="." groups=["rpatrol1"]]
+position = Vector2(528, 408)
+
+[node name="RangedEnemy2" parent="." instance=ExtResource("8_nh8ry")]
+position = Vector2(728, 576)
+marker_group_name = "rpatrol2"
+
+[node name="REnemy2Patrol" type="Marker2D" parent="." groups=["rpatrol2"]]
+position = Vector2(728, 408)
+
+[node name="REnemy2Patrol2" type="Marker2D" parent="." groups=["rpatrol2"]]
+position = Vector2(728, 576)
+
+[node name="RangedEnemy3" parent="." instance=ExtResource("8_nh8ry")]
+position = Vector2(928, 408)
+marker_group_name = "rpatrol3"
+
+[node name="REnemy3Patrol" type="Marker2D" parent="." groups=["rpatrol3"]]
+position = Vector2(928, 576)
+
+[node name="REnemy3Patrol2" type="Marker2D" parent="." groups=["rpatrol3"]]
+position = Vector2(928, 408)
+
+[node name="Player" parent="." instance=ExtResource("9_hx2o0")]
+position = Vector2(192, 192)

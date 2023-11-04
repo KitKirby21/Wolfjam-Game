@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://hinrjop3j4fu"]
+[gd_scene load_steps=10 format=3 uid="uid://hinrjop3j4fu"]
 
 [ext_resource type="Texture2D" uid="uid://bb7733ju4srun" path="res://Resources/Textures/TX Tileset Wall.png" id="1_nb1px"]
 [ext_resource type="Texture2D" uid="uid://6far8t1bd2sm" path="res://Resources/Textures/TX Tileset Stone Ground.png" id="2_phpai"]
 [ext_resource type="Texture2D" uid="uid://72u1uu6ogq14" path="res://Resources/Textures/TX Tileset Grass.png" id="3_ejd4y"]
 [ext_resource type="PackedScene" uid="uid://d10ktlmsdcynj" path="res://Scenes/MeleeEnemy.tscn" id="4_82gkr"]
+[ext_resource type="PackedScene" uid="uid://civreqnhpit2w" path="res://Scenes/Player.tscn" id="5_xwrqv"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1bk2c"]
 texture = ExtResource("1_nb1px")
@@ -2078,3 +2079,6 @@ position = Vector2(840, 264)
 
 [node name="Enemy4Patrol4" type="Marker2D" parent="." groups=["patrol4"]]
 position = Vector2(840, 184)
+
+[node name="Player" parent="." instance=ExtResource("5_xwrqv")]
+position = Vector2(224, 336)
