@@ -1,4 +1,4 @@
-extends CanvasLayer
+extends Node2D
 
 func change_scene(target: String) -> void:
 	$AnimationPlayer.play('Dissolve')

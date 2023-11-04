@@ -85,10 +85,10 @@ shape = SubResource("RectangleShape2D_2peja")
 z_index = 3
 position = Vector2(22.8766, -4.97382)
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="CatAttack" type="Area2D" parent="." groups=["CatAttack"]]
 position = Vector2(-22.6196, -41.8848)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CatAttack" groups=["CatAttack"]]
 position = Vector2(-18.5069, 41.8848)
 shape = SubResource("RectangleShape2D_54cv8")
 

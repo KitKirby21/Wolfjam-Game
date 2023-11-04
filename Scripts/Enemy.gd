@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 @export var SPEED = 200
 var stun_timer = 0
+var cat_timer = 0
 var health = 5
 
 enum State {
@@ -11,6 +12,7 @@ enum State {
 }
 
 @onready var player_detection_zone = $PlayerDetectionZone
+
 @export var marker_group_name : String
 var positions : Array
 var temp_positions : Array
@@ -32,6 +34,7 @@ func _ready():
 	get_next_position()
 
 func _physics_process(delta):
+	cat_timer_process(delta)
 	match current_state:
 		State.STUN:
 			stun_process(delta)
@@ -63,6 +66,9 @@ func stun_process(delta):
 			current_state = State.ENGAGE
 		else:
 			current_state = State.PATROL
+			
+func cat_timer_process(delta):
+	cat_timer -= delta
 	
 func get_positions():
 	temp_positions = positions.duplicate()
@@ -97,3 +103,10 @@ func _on_hitbox_area_entered(area):
 	if area.is_in_group("bullet"):
 		if area.can_damage_enemies:
 			take_damage(area.bullet_damage)
+			
+	#why the fuck does this never get called when uncommented
+	#if area.is_in_group("CatAttack"):
+		#print("meow")
+		#if cat_timer == 0:
+			#cat_timer = randf_range(2,4)
+			#take_damage(5)
