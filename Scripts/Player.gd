@@ -47,7 +47,7 @@ func take_damage(dmg):
 	anim_player.play("take_damage")
 	if DungeonManager.health <= 0:
 		DungeonManager.health = 0
-		get_tree().change_scene_to_file("res://Scenes/Menus/DeathScreen.tscn")
+		DungeonManager.load_level("Menus/DeathScreen")
 
 
 func _on_hitbox_area_entered(area):

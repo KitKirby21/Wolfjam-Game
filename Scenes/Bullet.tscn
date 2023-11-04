@@ -1,8 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://bmpwgerfwfoop"]
+[gd_scene load_steps=4 format=3 uid="uid://bmpwgerfwfoop"]
 
 [ext_resource type="Texture2D" uid="uid://dqnqxqecwn061" path="res://Resources/Textures/bullet.png" id="1_d2g10"]
 [ext_resource type="Script" path="res://Scripts/Bullet.gd" id="1_x3jy2"]
-[ext_resource type="AudioStream" uid="uid://cau6rn675mpk8" path="res://Resources/Audio/shoot.wav" id="3_f1l3b"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1qh7j"]
 size = Vector2(20, 8)
@@ -20,6 +19,3 @@ shape = SubResource("RectangleShape2D_1qh7j")
 position = Vector2(10, 3)
 scale = Vector2(0.017412, 0.0110396)
 texture = ExtResource("1_d2g10")
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." groups=["audio"]]
-stream = ExtResource("3_f1l3b")

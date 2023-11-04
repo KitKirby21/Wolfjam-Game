@@ -17,7 +17,7 @@ var max_health = 50
 var health = 49
 var haste = 60
 var damage = 1
-var kromer = 0
+var kromer = 30
 var Enemies;
 var pickup_instance;
 
@@ -42,7 +42,7 @@ func _ready():
 	var player = get_tree().get_first_node_in_group("player")
 	Enemies = get_tree().get_nodes_in_group("enemy")
 	ui = get_tree().get_first_node_in_group("UI");
-	print(ui)
+	#print(ui)
 
 
 
@@ -75,7 +75,7 @@ func unload_level():
 func load_level(level_name : String):
 	unload_level()
 	var level_path = "res://Scenes/%s.tscn" % level_name
-	print(level_path)
+	#print(level_path)
 	scene_to_load = load(level_path)
 	level_instance = scene_to_load.instantiate()
 	#levels.add_child(level_instance)

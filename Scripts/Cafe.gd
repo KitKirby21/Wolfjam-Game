@@ -65,7 +65,6 @@ func _buy(shop, price):
 
 func _on_cat_area_body_entered(body):
 	if body.is_in_group("player"):
-		DungeonManager.CurrentState = DungeonManager.Type.COMBAT
 		print("the cat is ready");
 		can_pet_cat = true;
 
@@ -124,4 +123,5 @@ func _on_speed_area_body_exited(body):
 
 
 func _on_exit_body_entered(body):
-	print("Move to dungeon");
+	DungeonManager.load_level("DungeonLayouts/DungeonSquare")
+	DungeonManager.CurrentState = DungeonManager.Type.COMBAT

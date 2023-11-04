@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://bcldgwuluxweu"]
+[gd_scene load_steps=22 format=3 uid="uid://bcldgwuluxweu"]
 
 [ext_resource type="Script" path="res://Scripts/Cafe.gd" id="1_nl6ax"]
 [ext_resource type="Texture2D" uid="uid://baficbe78ojha" path="res://Resources/Textures/Cafe_Screen.png" id="1_q6011"]
@@ -8,6 +8,8 @@
 [ext_resource type="Texture2D" uid="uid://o5623ymekc4b" path="res://Resources/Textures/damage upgrade.png" id="5_mop1g"]
 [ext_resource type="Texture2D" uid="uid://c06lutsydkxcy" path="res://Resources/Textures/speed upgrade.png" id="6_sht0h"]
 [ext_resource type="PackedScene" uid="uid://civreqnhpit2w" path="res://Scenes/Player.tscn" id="7_4e4kc"]
+[ext_resource type="PackedScene" uid="uid://ctkh20mmnatme" path="res://Scenes/UI.tscn" id="9_yomuc"]
+[ext_resource type="Texture2D" uid="uid://dupb8oey7k8xb" path="res://Resources/Textures/SewerGrate_Closed.png" id="10_xt6sc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5qu5a"]
 size = Vector2(118.5, 308)
@@ -233,6 +235,24 @@ light_mask = 5
 visibility_layer = 5
 position = Vector2(288, 33)
 shape = SubResource("CircleShape2D_uli6a")
+
+[node name="UI" parent="." groups=["UI"] instance=ExtResource("9_yomuc")]
+offset_left = 608.0
+offset_top = 829.0
+offset_right = 608.0
+offset_bottom = 829.0
+
+[node name="Label" type="Label" parent="."]
+offset_left = 802.0
+offset_top = 376.0
+offset_right = 914.0
+offset_bottom = 402.0
+scale = Vector2(2.15106, 1.93531)
+text = "Leave Shop -->"
+
+[node name="SewerGrateClosed" type="Sprite2D" parent="."]
+position = Vector2(1095, 402)
+texture = ExtResource("10_xt6sc")
 
 [connection signal="body_entered" from="HealthArea" to="." method="_on_health_area_body_entered"]
 [connection signal="body_exited" from="HealthArea" to="." method="_on_health_area_body_exited"]
