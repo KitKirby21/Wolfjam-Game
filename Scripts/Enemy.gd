@@ -59,10 +59,4 @@ func _on_player_detection_zone_body_exited(body):
 
 func _on_hitbox_area_entered(area):
 	if area.is_in_group("bullet"):
-		health -= area.bullet_damage
-		print(health)
-		if health <= 0:
-			#print(self.position)
-			DungeonManager._chanceDrop(self.position)
-			queue_free()
 		take_damage(area.bullet_damage)
