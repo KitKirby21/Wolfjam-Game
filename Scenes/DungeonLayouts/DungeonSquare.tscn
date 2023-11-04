@@ -2019,4 +2019,3 @@ layer_2/tile_data = PackedInt32Array(458782, 1572865, 4, 524318, 1572865, 5, 589
 position = Vector2(139, 156)
 scale = Vector2(3, 2.948)
 speed = 300
-can_move = true

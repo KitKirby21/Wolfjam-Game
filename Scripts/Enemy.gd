@@ -20,6 +20,9 @@ var current_state:int = State.PATROL:
 		current_state = new_state
 var player = null
 
+func _ready():
+	add_to_group("enemy")
+
 func _physics_process(delta):
 	match current_state:
 		State.PATROL:
@@ -48,4 +51,6 @@ func _on_player_detection_zone_body_exited(body):
 
 func _on_hitbox_body_entered(body):
 	if body.is_in_group("bullet"):
-		health -= body.damage
+		print("Damaged")
+		health -= body.bullet_damage
+	pass # Replace with function body.

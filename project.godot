@@ -18,6 +18,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 BulletManager="*res://Scripts/BulletManager.gd"
+DungeonManager="*res://Scripts/DungeonManager.gd"
 
 [display]
 

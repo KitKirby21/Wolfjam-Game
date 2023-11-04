@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bg5ev6m4vnn1j"
-path="res://.godot/imported/Ranged_Enemy_Walk.png-83f6696c24ca6188ae65425ef7fa4265.ctex"
+uid="uid://cxq7sn8vb52yv"
+path="res://.godot/imported/Enemies_Spritesheet.png-cc9a1b3f5be6db419d9282ab56dca999.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Resources/Textures/Ranged_Enemy_Walk.png"
-dest_files=["res://.godot/imported/Ranged_Enemy_Walk.png-83f6696c24ca6188ae65425ef7fa4265.ctex"]
+source_file="res://Resources/Textures/Enemies_Spritesheet.png"
+dest_files=["res://.godot/imported/Enemies_Spritesheet.png-cc9a1b3f5be6db419d9282ab56dca999.ctex"]
 
 [params]
 

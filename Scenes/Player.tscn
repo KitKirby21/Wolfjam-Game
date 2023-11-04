@@ -1,48 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://clm0appmkyrgr"]
+[gd_scene load_steps=5 format=3 uid="uid://clm0appmkyrgr"]
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_2c0h6"]
 [ext_resource type="PackedScene" uid="uid://bmpwgerfwfoop" path="res://Scenes/Bullet.tscn" id="2_bwqwu"]
-[ext_resource type="Texture2D" uid="uid://d0amxov3s6xt3" path="res://Resources/Textures/cat.png" id="2_ep6nn"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_e5hkq"]
-size = Vector2(165.125, 206.251)
-
-[sub_resource type="Animation" id="Animation_imso5"]
-resource_name = "Melee"
-length = 0.6
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("MeleeSwing/CollisionShape2D:disabled")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.3, 0.6),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [true, false, true]
-}
-
-[sub_resource type="Animation" id="Animation_08br8"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("MeleeSwing/CollisionShape2D:disabled")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_agf5y"]
-_data = {
-"Melee": SubResource("Animation_imso5"),
-"RESET": SubResource("Animation_08br8")
-}
+[ext_resource type="Texture2D" uid="uid://b6oqwyk8xtren" path="res://Resources/Textures/cat.png" id="2_ep6nn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2peja"]
 size = Vector2(41.8203, 42)
@@ -56,20 +16,11 @@ Bullet = ExtResource("2_bwqwu")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(-0.0908748, 5.70195e-07)
-scale = Vector2(0.158, 0.165)
+rotation = 1.57079
+scale = Vector2(0.158366, 0.164834)
 texture = ExtResource("2_ep6nn")
 
-[node name="MeleeSwing" type="Area2D" parent="Sprite2D"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/MeleeSwing"]
-position = Vector2(226.706, -3.1731)
-shape = SubResource("RectangleShape2D_e5hkq")
-disabled = true
-
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite2D"]
-libraries = {
-"": SubResource("AnimationLibrary_agf5y")
-}
 
 [node name="PlayerCollision" type="CollisionShape2D" parent="."]
 position = Vector2(-0.089839, 0)
@@ -77,5 +28,3 @@ shape = SubResource("RectangleShape2D_2peja")
 
 [node name="GunEnd" type="Node2D" parent="."]
 position = Vector2(22.8766, -4.97382)
-
-[connection signal="area_entered" from="Sprite2D/MeleeSwing" to="." method="_on_melee_swing_area_entered"]
