@@ -244,3 +244,4 @@ shape = SubResource("RectangleShape2D_54cv8")
 disabled = true
 
 [connection signal="area_entered" from="Sprite2D/MeleeSwing" to="." method="_on_melee_swing_area_entered"]
+[connection signal="area_entered" from="Sprite2D2/CatAttack" to="." method="_on_cat_attack_area_entered"]
