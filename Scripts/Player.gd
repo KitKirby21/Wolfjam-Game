@@ -10,7 +10,11 @@ var cat_timer = 0
 
 @onready var anim_player = $Sprite2D/AnimationPlayer
 
+@onready var cat_anim_player = $CatAttackSprite/CatAttackAnim
+
 @onready var gun_end = $GunEnd
+
+@onready var catAttack = $CatAttackSprite/CatAttack/CollisionShape2D
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -39,7 +43,7 @@ func _physics_process(delta):
 	cat_timer_process(delta)
 
 func cat_timer_process(delta):
-	#print(cat_timer)
+	print(cat_timer)
 	cat_timer -= delta
 
 func take_damage(dmg):
@@ -66,6 +70,11 @@ func _on_melee_swing_body_entered(body):
 			#area.take_damage(damage)
 			#print("hit")
 			
-func cat_attack(body):
-	if body.is_in_group("enemy"):
-		body.take_damage(DungeonManager.damage)
+func cat_attack(catAttack):
+	if catAttack.is_in_group("enemy"):
+		if cat_timer <= 0:
+			cat_timer = 2
+			catAttack.take_damage(5)
+			cat_anim_player.play("cat_slap")
+	else:
+		cat_anim_player.play_backwards("cat_slap")
