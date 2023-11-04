@@ -258,8 +258,10 @@ scale = Vector2(1, 1.00311)
 shape = SubResource("RectangleShape2D_o6cfb")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-limit_left = 0
+limit_left = -50
 limit_top = 0
+limit_right = 2000
+limit_bottom = 400
 
-[connection signal="area_entered" from="Sprite2D/MeleeSwing" to="." method="_on_melee_swing_area_entered"]
+[connection signal="body_entered" from="Sprite2D/MeleeSwing" to="." method="_on_melee_swing_body_entered"]
 [connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]

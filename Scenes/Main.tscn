@@ -11,7 +11,7 @@
 script = ExtResource("1_ut7xm")
 
 [node name="Player" parent="." instance=ExtResource("2_w4hbu")]
-position = Vector2(91, 186)
+position = Vector2(128, 200)
 scale = Vector2(1.527, 1.5)
 
 [node name="BulletManager" type="Node2D" parent="."]
