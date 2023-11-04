@@ -35,12 +35,19 @@ func _physics_process(delta):
 	_get_input()
 	move_and_slide()
 
+
+
+func take_damage(dmg):
+	print(dmg)
+
+
 #melee hit detection
 func _on_melee_swing_area_entered(area):
 	if area.is_in_group("enemy"):
-		#area.take_damage(damage)
-		get_tree().call_group("enemy", "take_damage")
-		print("took damage")
+		print(area)
+		area.get_owner().take_damage(DungeonManager.damage)
+		#get_tree().call_group("enemy", "take_damage")
+		#print("took damage")
 		#if area.has_method("take_damage"):
 			#area.take_damage(damage)
 			#print("hit")
