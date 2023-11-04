@@ -23,7 +23,8 @@ func _ready():
 func _process(delta):
 	Enemies = get_tree().get_nodes_in_group("enemy")
 	if(Enemies.size()<=0):
-		get_tree().change_scene_to_file("res://Scenes/Cafe.tscn")
+		#get_tree().change_scene_to_file("res://Scenes/Cafe.tscn")
+		return
 	
 func _chanceDrop(position):
 	pickup_instance = pickup.instantiate()
