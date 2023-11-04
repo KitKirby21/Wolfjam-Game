@@ -1,11 +1,12 @@
-[gd_scene load_steps=14 format=3 uid="uid://cwiu6uwly1u5m"]
+[gd_scene load_steps=15 format=3 uid="uid://cwiu6uwly1u5m"]
 
 [ext_resource type="Texture2D" uid="uid://bb7733ju4srun" path="res://Resources/Textures/TX Tileset Wall.png" id="1_ffy7l"]
 [ext_resource type="Texture2D" uid="uid://72u1uu6ogq14" path="res://Resources/Textures/TX Tileset Grass.png" id="2_vsdet"]
 [ext_resource type="Texture2D" uid="uid://6far8t1bd2sm" path="res://Resources/Textures/TX Tileset Stone Ground.png" id="3_trcya"]
 [ext_resource type="Texture2D" uid="uid://v5608lvyqtj8" path="res://Resources/Textures/TX Tileset Stone Ground (Cracked).png" id="4_66o32"]
-[ext_resource type="Texture2D" uid="uid://c85lq5pswejsr" path="res://Resources/Textures/TX Struct.png" id="5_4mp5v"]
+[ext_resource type="Texture2D" uid="uid://b8fd2kl16nrbv" path="res://Resources/Textures/TX Struct.png" id="5_4mp5v"]
 [ext_resource type="Texture2D" uid="uid://crmndm7r8tltb" path="res://Resources/Textures/TX Props.png" id="6_4a4q6"]
+[ext_resource type="PackedScene" uid="uid://cx1p2bkgdtrjm" path="res://Scenes/RangedEnemy.tscn" id="7_lotpi"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1bk2c"]
 texture = ExtResource("1_ffy7l")
@@ -6103,3 +6104,23 @@ layer_2/y_sort_enabled = false
 layer_2/y_sort_origin = 0
 layer_2/z_index = 2
 layer_2/tile_data = PackedInt32Array(131040, 1441798, 17, 196576, 1441798, 18, 262112, 1441798, 19, 327648, 1441798, 20, 131041, 1507334, 17, 196577, 1507334, 18, 262113, 1507334, 19, 327649, 1507334, 20, 393185, 1507334, 21, 65506, 1572870, 16, 131042, 1572870, 17, 196578, 1572870, 18, 262114, 1572870, 19, 327650, 1572870, 20, 393186, 1572870, 21, 65507, 1638406, 16, 131043, 1638406, 17, 196579, 1638406, 18, 262115, 1638406, 19, 327651, 1638406, 20, 393187, 1638406, 21, 131044, 1703942, 17, 196580, 1703942, 18, 262116, 1703942, 19, 327652, 1703942, 20, 393188, 1703942, 21, 131045, 1769478, 17, 196581, 1769478, 18, 262117, 1769478, 19, 327653, 1769478, 20, 720921, 1769473, 6, 851993, 1769473, 8, 917529, 1769473, 9, 786457, 1769473, 7, 720902, 1769473, 4, 786438, 1769473, 5, 851974, 1769473, 5, 917510, 1769473, 5, 983046, 589825, 5, 1048582, 589825, 4, 1114118, 589825, 4, 1179654, 589825, 5, 1245190, 589825, 4, 1310726, 589825, 5, 1376262, 589825, 4, 1441798, 589825, 4, 1507334, 589825, 5, 1572870, 589825, 4, 1638406, 589825, 5, 1703942, 589825, 6, 1769478, 589825, 8, 1769479, 655361, 8, 1769480, 720897, 8, 1769481, 786433, 8, 1769482, 851969, 8, 1769483, 917505, 8, 1769484, 655361, 8, 1769485, 655361, 8, 1769486, 720897, 8, 1769487, 917505, 8, 1769488, 720897, 8, 1769489, 655361, 8, 1769490, 655361, 8, 720915, 1572865, 4, 786451, 1048577, 4, 851987, 1048577, 4, 917523, 1048577, 4, 983059, 1048577, 4, 1048595, 1048577, 4, 1114131, 1048577, 4, 1179667, 1048577, 4, 1245203, 1048577, 5, 1310739, 1048577, 5, 1376275, 1048577, 5, 1441811, 1048577, 4, 1507347, 1048577, 4, 1572883, 1048577, 5, 1638419, 1048577, 5, 1703955, 1048577, 5, 1769491, 1048577, 8)
+
+[node name="RangedEnemy" parent="." instance=ExtResource("7_lotpi")]
+position = Vector2(280, 608)
+marker_group_name = "patrol1"
+
+[node name="Enemy1Patrol" type="Marker2D" parent="." groups=["patrol1"]]
+position = Vector2(280, 432)
+
+[node name="Enemy1Patrol2" type="Marker2D" parent="." groups=["patrol1"]]
+position = Vector2(280, 632)
+
+[node name="RangedEnemy2" parent="." instance=ExtResource("7_lotpi")]
+position = Vector2(568, 432)
+marker_group_name = "patrol2"
+
+[node name="Enemy2Patrol" type="Marker2D" parent="." groups=["patrol2"]]
+position = Vector2(568, 432)
+
+[node name="Enemy2Patrol2" type="Marker2D" parent="." groups=["patrol2"]]
+position = Vector2(568, 632)
