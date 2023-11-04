@@ -35,61 +35,75 @@ func _check_kromer(required_kromer):
 func _buy(shop, price):
 	if shop == "Health" and _check_kromer(price):
 		manager.health += 1;
+		manager.kromer -= price
 		print("mmm health");
-	if shop == "Speed" and _check_kromer(price):
+	elif shop == "Speed" and _check_kromer(price):
 		manager.speed += 1;
+		manager.kromer -= price
 		print("nyoom");	
-	if shop == "Haste" and _check_kromer(price):
+	elif shop == "Haste" and _check_kromer(price):
 		manager.haste += 1;
+		manager.kromer -= price
 		print("I'm fast as fuck boi");
-	if shop == "Damage" and _check_kromer(price):
+	elif shop == "Damage" and _check_kromer(price):
 		manager.damage += 1;
-		print("Yeouch");
-	if shop == "":
+		manager.kromer -= price
+		print("Yeouch");	
+	elif shop == "":
 		print("Not in a shop");
 	else:
 		print("haha poor");
+
+
 	return
 
 func _on_damage_area_body_entered(body):
 	if body.is_in_group("player"):
-		current_shop = "Speed";
+		current_shop = "Damage";
+		print("entered damage shop");
 	return;
 
 
 func _on_health_area_body_entered(body):
 	if body.is_in_group("player") :
 		current_shop = "Health";
+		print("entered health shop");
 	return;
 
 
 func _on_speed_area_body_entered(body):
 	if body.is_in_group("player"):
 		current_shop = "Speed";
+		print("entered speed shop");
 	return;
 
 
 func _on_haste_area_body_entered(body):
 	if body.is_in_group("player"):
 		current_shop = "Haste"	
+		print("entered haste shop");
 	return;
 
 
 func _on_health_area_body_exited(body):
 	if body.is_in_group("player"):
+		print("left health shop")		
 		current_shop = "";
 
 
 func _on_speed_area_body_exited(body):
 	if body.is_in_group("player"):
+		print("left speed shop")
 		current_shop = "";
 
 
 func _on_haste_area_body_exited(body):
 	if body.is_in_group("player"):
+		print("left haste shop")
 		current_shop = "";
 
 
 func _on_damage_area_body_exited(body):
 	if body.is_in_group("player"):
+		print("left damage shop")
 		current_shop = "";
