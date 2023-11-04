@@ -1,19 +1,16 @@
-[gd_scene load_steps=19 format=3 uid="uid://d10ktlmsdcynj"]
+[gd_scene load_steps=18 format=3 uid="uid://d10ktlmsdcynj"]
 
 [ext_resource type="Script" path="res://Scripts/MeleeEnemy.gd" id="1_v47tk"]
 [ext_resource type="Texture2D" uid="uid://qh1gtmxsh0wd" path="res://Resources/Textures/Enemies_Spritesheet.png" id="2_vgb0q"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pn4vj"]
-size = Vector2(51.7241, 64)
+size = Vector2(48, 64)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_patb3"]
 radius = 256.125
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_scf3i"]
 size = Vector2(48, 64)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_lkeks"]
-size = Vector2(56, 80)
 
 [sub_resource type="Animation" id="Animation_5o8u7"]
 length = 0.001
@@ -311,18 +308,16 @@ collision_mask = 4
 script = ExtResource("1_v47tk")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(-0.25, 0.25)
+scale = Vector2(-1, 1)
 texture = ExtResource("2_vgb0q")
 hframes = 3
 vframes = 10
 frame = 12
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-scale = Vector2(0.928, 1.00781)
 shape = SubResource("RectangleShape2D_pn4vj")
 
 [node name="PlayerDetectionZone" type="Area2D" parent="."]
-visible = false
 collision_layer = 5
 collision_mask = 5
 
@@ -334,16 +329,7 @@ collision_layer = 4
 collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
-visible = false
 shape = SubResource("RectangleShape2D_scf3i")
-
-[node name="AttackRange" type="Area2D" parent="."]
-collision_layer = 4
-collision_mask = 4
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackRange"]
-position = Vector2(-4, 0)
-shape = SubResource("RectangleShape2D_lkeks")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("../Sprite2D")
@@ -354,5 +340,3 @@ libraries = {
 [connection signal="body_entered" from="PlayerDetectionZone" to="." method="_on_player_detection_zone_body_entered"]
 [connection signal="body_exited" from="PlayerDetectionZone" to="." method="_on_player_detection_zone_body_exited"]
 [connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]
-[connection signal="body_entered" from="AttackRange" to="." method="_on_attack_range_body_entered"]
-[connection signal="body_exited" from="AttackRange" to="." method="_on_attack_range_body_exited"]
