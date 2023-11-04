@@ -38,8 +38,11 @@ func _physics_process(delta):
 
 
 func take_damage(dmg):
-	print(dmg)
-
+	DungeonManager.health -= dmg
+	print(DungeonManager.health)
+	if DungeonManager.health <= 0:
+		DungeonManager.health = 0
+		get_tree().change_scene_to_file("res://Scenes/Menus/DeathScreen.tscn")
 
 #melee hit detection
 func _on_melee_swing_area_entered(area):
@@ -53,3 +56,9 @@ func _on_melee_swing_area_entered(area):
 			#print("hit")
 	else:
 		print("cannot take damage")
+
+
+func _on_hitbox_area_entered(area):
+	if area.is_in_group("bullet"):
+		if !area.can_damage_enemies:
+			take_damage(area.bullet_damage)

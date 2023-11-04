@@ -4,6 +4,7 @@ extends Node
 var pickup = load("res://Scenes/pickup.tscn")
 
 var speed = 200
+var max_health = 50
 var health = 49
 var haste = 60
 var damage = 1
