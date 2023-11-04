@@ -1,28 +1,28 @@
 [gd_scene load_steps=8 format=3 uid="uid://vtjlkyjgwmjs"]
 
-[ext_resource type="Texture2D" uid="uid://c07vxxl6sykhv" path="res://icon.svg" id="1_o1obv"]
 [ext_resource type="Script" path="res://Scenes/pickup.gd" id="1_t7cc2"]
-[ext_resource type="Texture2D" uid="uid://dqnqxqecwn061" path="res://Resources/Textures/bullet.png" id="3_ttefq"]
+[ext_resource type="Texture2D" uid="uid://c1p6qkaa0broh" path="res://Resources/Textures/Coin.png" id="2_ofnm0"]
+[ext_resource type="Texture2D" uid="uid://d2k6gs7hbpyp1" path="res://Resources/Textures/Heart.png" id="3_a8ujk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8de3e"]
 size = Vector2(64, 65)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_j2tce"]
-atlas = ExtResource("1_o1obv")
-region = Rect2(0, 0, 128, 128)
+[sub_resource type="AtlasTexture" id="AtlasTexture_vc2kl"]
+atlas = ExtResource("2_ofnm0")
+region = Rect2(0, 0, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_vkxms"]
-atlas = ExtResource("3_ttefq")
-region = Rect2(278, 0, 278, 145)
+[sub_resource type="AtlasTexture" id="AtlasTexture_v01fm"]
+atlas = ExtResource("3_a8ujk")
+region = Rect2(0, 0, 64, 64)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_k4iyf"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_j2tce")
+"texture": SubResource("AtlasTexture_vc2kl")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_vkxms")
+"texture": SubResource("AtlasTexture_v01fm")
 }],
 "loop": true,
 "name": &"default",

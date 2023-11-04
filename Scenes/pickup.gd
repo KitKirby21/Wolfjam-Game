@@ -7,6 +7,8 @@ func _ready():
 		$AnimatedSprite2D.frame = 1
 		healthPickup = true
 	
+	add_to_group("pickup")
+	
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -21,5 +23,5 @@ func _on_body_entered(body):
 		else:
 			DungeonManager.kromer+=5
 		queue_free()
-		
+	
 		
