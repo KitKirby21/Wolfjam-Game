@@ -30,9 +30,9 @@ func _get_input():
 		shoot()
 
 func shoot():
-	var bullet_instance = Bullet.instance()
+	var bullet_instance = Bullet.instantiate()
 	add_child(bullet_instance)
-	bullet_instance.global_position =
+	bullet_instance.global_position = gun_end.global_position
 
 func _physics_process(delta):
 	_get_input()
