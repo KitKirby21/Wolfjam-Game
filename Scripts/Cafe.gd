@@ -7,8 +7,11 @@ extends Node2D
 @onready var speed_area = $SpeedArea;
 @onready var haste_area = $HasteArea;
 @onready var damage_area = $DamageArea;
+@onready var cat_area = $CatArea;
 
 var current_shop ="";
+
+var can_pet_cat = false;
 
 @export var health_cost = 10;
 @export var speed_cost = 10;
@@ -23,6 +26,7 @@ func _process(delta):
 	#_check_shop_update(player);
 	if Input.is_action_just_pressed("Interact"):
 		_buy(current_shop, 10);	
+		_pet_cat();
 	pass
 
 
@@ -31,6 +35,11 @@ func _process(delta):
 func _check_kromer(required_kromer):
 	if manager.kromer < required_kromer: return false;
 	else: return true;
+
+func _pet_cat():
+	if can_pet_cat == true:
+		print("mrow");	
+	return;
 	
 func _buy(shop, price):
 	if shop == "Health" and _check_kromer(price):
@@ -53,9 +62,7 @@ func _buy(shop, price):
 		print("Not in a shop");
 	else:
 		print("haha poor");
-
-
-	return
+	return;
 
 func _on_damage_area_body_entered(body):
 	if body.is_in_group("player"):
@@ -107,3 +114,16 @@ func _on_damage_area_body_exited(body):
 	if body.is_in_group("player"):
 		print("left damage shop")
 		current_shop = "";
+
+
+func _on_cat_area_body_entered(body):
+	if body.is_in_group("player"):
+		print("the cat is ready");
+		can_pet_cat = true;
+
+
+func _on_cat_area_body_exited(body):
+	if body.is_in_group("player"):
+		print("the cat misses you already");
+		can_pet_cat = false;
+
