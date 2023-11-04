@@ -10,7 +10,10 @@ enum State {
 }
 
 @onready var player_detection_zone = $PlayerDetectionZone
-
+@export var marker_group_name : String
+var positions : Array
+var temp_positions : Array
+var current_position : Marker2D
 var current_state:int = State.PATROL:
 	get:
 		return current_state
@@ -22,11 +25,17 @@ var player = null
 
 func _ready():
 	add_to_group("enemy")
+	
+	positions = get_tree().get_nodes_in_group(marker_group_name)
+	get_positions()
+	get_next_position()
 
 func _physics_process(delta):
 	match current_state:
 		State.PATROL:
-			pass
+			move(current_position.position, delta)
+			if global_position.distance_to(current_position.position) < 10:
+				get_next_position()
 		State.ENGAGE:
 			move(player.global_position, delta)
 
@@ -39,10 +48,20 @@ func move(target, delta):
 
 func take_damage(dmg):
 	health -= dmg
+	velocity = velocity
 	print(health)
 	if health <= 0:
 		DungeonManager._chanceDrop(global_position)
 		queue_free()
+
+func get_positions():
+	temp_positions = positions.duplicate()
+	temp_positions.shuffle()
+
+func get_next_position():
+	if temp_positions.is_empty():
+		get_positions()
+	current_position = temp_positions.pop_front()
 
 func _on_player_detection_zone_body_entered(body):
 	if body.is_in_group("player"):
@@ -59,10 +78,4 @@ func _on_player_detection_zone_body_exited(body):
 
 func _on_hitbox_area_entered(area):
 	if area.is_in_group("bullet"):
-		health -= area.bullet_damage
-		print(health)
-		if health <= 0:
-			#print(self.position)
-			DungeonManager._chanceDrop(self.position)
-			queue_free()
 		take_damage(area.bullet_damage)
