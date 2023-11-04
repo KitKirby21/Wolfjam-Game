@@ -1,0 +1,73 @@
+[gd_scene load_steps=3 format=3 uid="uid://ctkh20mmnatme"]
+
+[ext_resource type="Texture2D" uid="uid://d2k6gs7hbpyp1" path="res://Resources/Textures/Heart.png" id="1_nsqlu"]
+[ext_resource type="Texture2D" uid="uid://c1p6qkaa0broh" path="res://Resources/Textures/Coin.png" id="2_0ua2a"]
+
+[node name="UI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Health" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -556.0
+offset_top = -298.5
+offset_right = -463.0
+offset_bottom = -206.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_nsqlu")
+
+[node name="HealthBar" type="ProgressBar" parent="Health"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 107.0
+offset_top = -75.5
+offset_right = 198.0
+offset_bottom = -28.5
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Coins" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -555.0
+offset_top = -190.5
+offset_right = -462.0
+offset_bottom = -98.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_0ua2a")
+
+[node name="CoinsLabel" type="Label" parent="Coins"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 14.0001
+offset_top = -22.5
+offset_right = 88.0001
+offset_bottom = 20.5
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "x0"
+vertical_alignment = 1
