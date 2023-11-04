@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://dvcbgxwh7ejq8"]
+[gd_scene load_steps=11 format=3 uid="uid://dvcbgxwh7ejq8"]
 
 [ext_resource type="Script" path="res://Scripts/DeathScreen.gd" id="1_2bbi0"]
 [ext_resource type="Texture2D" uid="uid://byc02aqb5yqb8" path="res://Resources/Textures/death_screen-no_cat.png" id="2_3qq2b"]
 [ext_resource type="Theme" uid="uid://6n1isnwcl482" path="res://Resources/TextThemes/NormalTextTheme.tres" id="2_a5o0o"]
 [ext_resource type="Texture2D" uid="uid://c3o5dha04v2e5" path="res://Resources/Textures/MainMenu_Button.png" id="4_7m0vq"]
+[ext_resource type="Texture2D" uid="uid://br6t7wlo02848" path="res://Resources/Textures/Respawn_Button.png" id="4_cw6n3"]
 [ext_resource type="Texture2D" uid="uid://cuvxhoiffq117" path="res://Resources/Textures/cat_idle-Sheet.png" id="4_lgekn"]
 [ext_resource type="Texture2D" uid="uid://btbtnmwoejq2s" path="res://Resources/Textures/Quit_Button.png" id="5_bfgwp"]
 
@@ -78,8 +79,10 @@ grow_vertical = 2
 
 [node name="RespawnButton" type="Button" parent="CanvasLayer/VBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 theme = ExtResource("2_a5o0o")
-text = "Respawn"
+icon = ExtResource("4_cw6n3")
 
 [node name="MainMenuButton" type="Button" parent="CanvasLayer/VBoxContainer"]
 layout_mode = 2
