@@ -1,6 +1,19 @@
-[gd_scene load_steps=2 format=3 uid="uid://clm0appmkyrgr"]
+[gd_scene load_steps=4 format=3 uid="uid://clm0appmkyrgr"]
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_2c0h6"]
+[ext_resource type="Texture2D" uid="uid://d0amxov3s6xt3" path="res://Resources/Textures/cat.png" id="2_ep6nn"]
 
-[node name="Player" type="Node2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2peja"]
+
+[node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_2c0h6")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+rotation = 1.57079
+scale = Vector2(0.0721698, 0.0777559)
+texture = ExtResource("2_ep6nn")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite2D"]
+
+[node name="PlayerCollision" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_2peja")
