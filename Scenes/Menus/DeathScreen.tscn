@@ -1,8 +1,48 @@
-[gd_scene load_steps=4 format=3 uid="uid://dvcbgxwh7ejq8"]
+[gd_scene load_steps=10 format=3 uid="uid://dvcbgxwh7ejq8"]
 
 [ext_resource type="Script" path="res://Scripts/DeathScreen.gd" id="1_2bbi0"]
-[ext_resource type="Theme" uid="uid://b71wrlc0sv5m8" path="res://Resources/TextThemes/TitleTextTheme.tres" id="1_woi8n"]
+[ext_resource type="Texture2D" uid="uid://byc02aqb5yqb8" path="res://Resources/Textures/death_screen-no_cat.png" id="2_3qq2b"]
 [ext_resource type="Theme" uid="uid://6n1isnwcl482" path="res://Resources/TextThemes/NormalTextTheme.tres" id="2_a5o0o"]
+[ext_resource type="Texture2D" uid="uid://c3o5dha04v2e5" path="res://Resources/Textures/MainMenu_Button.png" id="4_7m0vq"]
+[ext_resource type="Texture2D" uid="uid://cuvxhoiffq117" path="res://Resources/Textures/cat_idle-Sheet.png" id="4_lgekn"]
+[ext_resource type="Texture2D" uid="uid://btbtnmwoejq2s" path="res://Resources/Textures/Quit_Button.png" id="5_bfgwp"]
+
+[sub_resource type="Animation" id="Animation_q6gde"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_tqm07"]
+resource_name = "cat_idle"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jpafs"]
+_data = {
+"RESET": SubResource("Animation_q6gde"),
+"cat_idle": SubResource("Animation_tqm07")
+}
 
 [node name="DeathScreen" type="Control"]
 layout_mode = 3
@@ -21,18 +61,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-
-[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer"]
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -152.5
-offset_right = 152.5
-offset_bottom = 89.0
-grow_horizontal = 2
-theme = ExtResource("1_woi8n")
-theme_override_font_sizes/normal_font_size = 64
-text = "You Died!"
+texture = ExtResource("2_3qq2b")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer"]
 anchors_preset = 8
@@ -40,10 +69,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -113.5
-offset_top = -83.5
-offset_right = 113.5
-offset_bottom = 83.5
+offset_left = 101.0
+offset_top = -64.0
+offset_right = 328.0
+offset_bottom = 141.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -54,14 +83,36 @@ text = "Respawn"
 
 [node name="MainMenuButton" type="Button" parent="CanvasLayer/VBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 theme = ExtResource("2_a5o0o")
-text = "Main Menu"
+icon = ExtResource("4_7m0vq")
 
 [node name="QuitButton" type="Button" parent="CanvasLayer/VBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 theme = ExtResource("2_a5o0o")
-text = "Quit"
+icon = ExtResource("5_bfgwp")
+
+[node name="Cat" type="Button" parent="CanvasLayer"]
+offset_left = 467.0
+offset_top = 288.0
+offset_right = 620.0
+offset_bottom = 429.0
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/Cat"]
+position = Vector2(79, 73.75)
+scale = Vector2(2.4375, 2.28906)
+texture = ExtResource("4_lgekn")
+hframes = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/Cat/Sprite2D"]
+libraries = {
+"": SubResource("AnimationLibrary_jpafs")
+}
 
 [connection signal="pressed" from="CanvasLayer/VBoxContainer/RespawnButton" to="." method="_on_respawn_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/VBoxContainer/MainMenuButton" to="." method="_on_main_menu_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/Cat" to="." method="_on_cat_pressed"]
