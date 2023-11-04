@@ -27,6 +27,7 @@ grow_vertical = 2
 texture = ExtResource("1_nsqlu")
 
 [node name="HealthBar" type="ProgressBar" parent="Health"]
+z_index = 5
 layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0

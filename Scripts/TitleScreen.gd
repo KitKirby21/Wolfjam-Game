@@ -13,7 +13,7 @@ func _process(delta):
 
 
 func _on_start_button_pressed():
-	DungeonManager.load_level("Main")
+	DungeonManager.load_level("DungeonLayouts/DungeonSquare")
 	DungeonManager.CurrentState = DungeonManager.Type.COMBAT
 	#var scene = load("res://Scenes/DungeonLayouts/DungeonSquare.tscn")
 	#var instance = scene.instantiate()
