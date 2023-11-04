@@ -3,4 +3,5 @@
 [ext_resource type="Script" path="res://Scripts/Level.gd" id="1_hm7ax"]
 
 [node name="level" type="Node2D"]
+scale = Vector2(4.02407, 2.6115)
 script = ExtResource("1_hm7ax")

@@ -1,4 +1,8 @@
-[gd_scene format=3 uid="uid://dvxoju81u0wj8"]
+[gd_scene load_steps=4 format=3 uid="uid://dvxoju81u0wj8"]
+
+[ext_resource type="Theme" uid="uid://b71wrlc0sv5m8" path="res://Resources/TextThemes/TitleTextTheme.tres" id="1_1g7m7"]
+[ext_resource type="Script" path="res://Scripts/EndScreen.gd" id="1_mbyif"]
+[ext_resource type="Theme" uid="uid://6n1isnwcl482" path="res://Resources/TextThemes/NormalTextTheme.tres" id="2_vxrsv"]
 
 [node name="EndScreen" type="Control"]
 layout_mode = 3
@@ -7,6 +11,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_mbyif")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -26,7 +31,7 @@ offset_left = -279.5
 offset_right = 279.5
 offset_bottom = 89.0
 grow_horizontal = 2
-theme_override_font_sizes/normal_font_size = 64
+theme = ExtResource("1_1g7m7")
 text = "Game Completed!"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer"]
@@ -42,12 +47,20 @@ offset_bottom = 83.5
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="StartButton" type="Button" parent="CanvasLayer/VBoxContainer"]
+[node name="Label" type="Label" parent="CanvasLayer/VBoxContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 32
+theme = ExtResource("2_vxrsv")
+text = "Thank You For Playing <3"
+
+[node name="MainMenuButton" type="Button" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_vxrsv")
 text = "Main Menu"
 
 [node name="QuitButton" type="Button" parent="CanvasLayer/VBoxContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 32
+theme = ExtResource("2_vxrsv")
 text = "Quit"
+
+[connection signal="pressed" from="CanvasLayer/VBoxContainer/MainMenuButton" to="." method="_on_main_menu_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
