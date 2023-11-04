@@ -5,6 +5,13 @@ var pickup = load("res://Scenes/pickup.tscn")
 @onready var ui;
 
 
+var DungeonSquare = load("res://Scenes/Main.tscn")
+var DungeonTShape = load("res://Scenes/DungeonLayouts/DungeonTShape.tscn")
+var DungeonConnector = load("res://Scenes/DungeonLayouts/DungeonConnector.tscn")
+var DungeonLeft = load("res://Scenes/DungeonLayouts/DungeonLeft.tscn")
+
+var Levels = [DungeonSquare,DungeonTShape,DungeonConnector,DungeonLeft]
+
 var speed = 200
 var max_health = 50
 var health = 49
@@ -14,9 +21,16 @@ var kromer = 0
 var Enemies;
 var pickup_instance;
 
+var LevelsCompleted = 0;
+var CurrentState;
+
+enum Type {
+	COMBAT,
+	CAFE
+}
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	
 	var player = get_tree().get_first_node_in_group("player")
 	Enemies = get_tree().get_nodes_in_group("enemy")
 	ui = get_tree().get_first_node_in_group("UI");
@@ -27,10 +41,12 @@ func _ready():
 func _process(delta):
 	ui = get_tree().get_first_node_in_group("UI");
 	Enemies = get_tree().get_nodes_in_group("enemy")
-	if(Enemies.size()<=0 and get_tree().current_scene.name != "Cafe"):
-		get_tree().change_scene_to_file("res://Scenes/Cafe.tscn")				
-	ui.get_node("Coins/CoinsLabel").text = str(kromer);	
-	return
+	if(DungeonManager.CurrentState==DungeonManager.Type.COMBAT):
+		get_tree().change_scene_to_packed(Levels[0])
+		
+	if(Enemies.size()<=0 && Type.COMBAT):
+		#get_tree().change_scene_to_file("res://Scenes/Cafe.tscn")
+		return
 	
 func _chanceDrop(position):
 	pickup_instance = pickup.instantiate()

@@ -45,22 +45,19 @@ func take_damage(dmg):
 		DungeonManager.health = 0
 		get_tree().change_scene_to_file("res://Scenes/Menus/DeathScreen.tscn")
 
-#melee hit detection
-func _on_melee_swing_area_entered(area):
-	if area.is_in_group("enemy"):
-		print(area)
-		area.get_owner().take_damage(DungeonManager.damage)
-		#get_tree().call_group("enemy", "take_damage")
-		#print("took damage")
-		#if area.has_method("take_damage"):
-			#area.take_damage(damage)
-			#print("hit")
-	else:
-		print("cannot take damage")
-
 
 func _on_hitbox_area_entered(area):
 	if area.is_in_group("bullet"):
 		if area.can_damage_enemies == false:
 			take_damage(area.bullet_damage)
 			area.queue_free()
+
+
+func _on_melee_swing_body_entered(body):
+	if body.is_in_group("enemy"):
+		body.take_damage(DungeonManager.damage)
+		#get_tree().call_group("enemy", "take_damage")
+		#print("took damage")
+		#if area.has_method("take_damage"):
+			#area.take_damage(damage)
+			#print("hit")
