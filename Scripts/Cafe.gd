@@ -1,6 +1,6 @@
 extends Node2D
 
-@onready var player = get_tree().get_first_node_in_group("player")
+@onready var player = $Player
 @onready var manager = $DungeonManager;
 
 @onready var health_area = $HealthArea;
@@ -8,6 +8,10 @@ extends Node2D
 @onready var haste_area = $HasteArea;
 @onready var damage_area = $DamageArea;
 @onready var cat_area = $CatArea;
+
+@onready var ui = $UI;
+
+#@onready var ui = $UI
 
 var current_shop ="";
 
@@ -44,7 +48,7 @@ func _pet_cat():
 func _buy(shop, price):
 	if shop == "Health" and _check_kromer(price):
 		manager.health += 1;
-		manager.kromer -= price
+		manager.kromer -= price;
 		print("mmm health");
 	elif shop == "Speed" and _check_kromer(price):
 		manager.speed += 1;
