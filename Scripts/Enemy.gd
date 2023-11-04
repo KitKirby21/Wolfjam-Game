@@ -20,6 +20,9 @@ var current_state:int = State.PATROL:
 		current_state = new_state
 var player = null
 
+func _ready():
+	add_to_group("enemy")
+
 func _physics_process(delta):
 	match current_state:
 		State.PATROL:
