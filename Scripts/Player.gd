@@ -2,11 +2,21 @@ extends CharacterBody2D
 
 @export var speed = 200
 
+@export var health = 50
+
+@export var haste = 60
+
+@export var damage = 1
+
+@export var kromer = 0
+
 @export var can_move = true
 
 @export var Bullet: PackedScene
 
 @onready var anim_player = $Sprite2D/AnimationPlayer
+
+@onready var gun_end = $GunEnd
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -22,6 +32,7 @@ func _get_input():
 func shoot():
 	var bullet_instance = Bullet.instance()
 	add_child(bullet_instance)
+	bullet_instance.global_position =
 
 func _physics_process(delta):
 	_get_input()

@@ -5,22 +5,31 @@
 [ext_resource type="Texture2D" uid="uid://d0amxov3s6xt3" path="res://Resources/Textures/cat.png" id="2_ep6nn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2peja"]
-size = Vector2(42, 42)
+size = Vector2(41.8203, 42)
 
 [node name="Player" type="CharacterBody2D"]
+scale = Vector2(3.89043, 3.82)
 collision_layer = 4
 collision_mask = 4
-scale = Vector2(3.89043, 3.82)
 script = ExtResource("1_2c0h6")
+speed = null
+health = null
+haste = null
+damage = null
+can_move = null
 Bullet = ExtResource("2_bwqwu")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(1.90735e-06, 0)
+position = Vector2(-0.0908748, 5.70195e-07)
 rotation = 1.57079
-scale = Vector2(0.158366, 0.16555)
+scale = Vector2(0.158366, 0.164834)
 texture = ExtResource("2_ep6nn")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite2D"]
 
 [node name="PlayerCollision" type="CollisionShape2D" parent="."]
+position = Vector2(-0.089839, 0)
 shape = SubResource("RectangleShape2D_2peja")
+
+[node name="GunEnd" type="Node2D" parent="."]
+position = Vector2(22.6196, 0)
