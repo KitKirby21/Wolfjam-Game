@@ -21,9 +21,10 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	return
+	
 func _chanceDrop(position):
 	pickup_instance = pickup.instantiate()
 	pickup_instance.position = position
-	#add_child(pickup_instance)
+	call_deferred("add_child",pickup_instance)
 	#print(pickup_instance.position)
 	return

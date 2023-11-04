@@ -20,6 +20,6 @@ func _on_body_entered(body):
 			DungeonManager.health+=15
 		else:
 			DungeonManager.kromer+=5
-			queue_free()
+		queue_free()
 		
 		
