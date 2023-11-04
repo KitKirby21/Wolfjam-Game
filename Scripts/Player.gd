@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+signal shot(bullet, position, direction)
+
 @export var speed = 200
 
 @export var health = 50
@@ -31,11 +33,9 @@ func _get_input():
 
 func shoot():
 	var bullet_instance = Bullet.instantiate()
-	add_child(bullet_instance)
-	bullet_instance.global_position = gun_end.global_position
 	var target = get_global_mouse_position()
-	var direction = bullet_instance.global_position.direction_to(target).normalized()
-	bullet_instance.set_direction(direction)
+	var direction = gun_end.global_position.direction_to(target).normalized()
+	BulletManager.bullet_spawned(bullet_instance, gun_end.global_position, direction)
 
 func _physics_process(delta):
 	_get_input()
