@@ -95,7 +95,7 @@ func _on_player_detection_zone_body_entered(body):
 
 func _on_player_detection_zone_body_exited(body):
 	if body.is_in_group("player"):
-		print("Exited")
+		#print("Exited")
 		current_state = State.PATROL
 		player = null
 
@@ -103,10 +103,11 @@ func _on_hitbox_area_entered(area):
 	if area.is_in_group("bullet"):
 		if area.can_damage_enemies:
 			take_damage(area.bullet_damage)
-			
+	
 	#why the fuck does this never get called when uncommented
-	#if area.is_in_group("CatAttack"):
+	if area.is_in_group("CatAttack"):
 		#print("meow")
-		#if cat_timer == 0:
-			#cat_timer = randf_range(2,4)
-			#take_damage(5)
+		#print(area.name)
+		if cat_timer == 0:
+			cat_timer = randf_range(2,4)
+			take_damage(5)

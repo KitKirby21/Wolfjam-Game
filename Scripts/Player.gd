@@ -22,7 +22,7 @@ func _get_input():
 	if Input.is_action_just_pressed("shoot"):
 		shoot()
 	if Input.is_action_just_pressed("swing"):
-		print(self.position)
+		#print(self.position)
 		anim_player.play("Swing")
 
 func shoot():

@@ -87,6 +87,8 @@ position = Vector2(22.8766, -4.97382)
 
 [node name="CatAttack" type="Area2D" parent="." groups=["CatAttack"]]
 position = Vector2(-22.6196, -41.8848)
+collision_layer = 4
+collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CatAttack" groups=["CatAttack"]]
 position = Vector2(-18.5069, 41.8848)
