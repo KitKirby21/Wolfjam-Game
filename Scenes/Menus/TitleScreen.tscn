@@ -94,12 +94,19 @@ theme = ExtResource("2_h6ajs")
 icon = ExtResource("6_od4m2")
 expand_icon = true
 
-[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer"]
-position = Vector2(749, 436)
+[node name="Cat" type="Button" parent="CanvasLayer"]
+offset_left = 717.0
+offset_top = 409.0
+offset_right = 777.0
+offset_bottom = 465.0
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/Cat"]
+position = Vector2(29, 28)
+scale = Vector2(0.875, 0.859375)
 texture = ExtResource("7_eqd1s")
 hframes = 2
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/Sprite2D"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/Cat/Sprite2D"]
 libraries = {
 "": SubResource("AnimationLibrary_jpafs")
 }
@@ -107,3 +114,4 @@ libraries = {
 [connection signal="pressed" from="CanvasLayer/StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/ControlsButton" to="." method="_on_controls_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/Cat" to="." method="_on_cat_pressed"]
