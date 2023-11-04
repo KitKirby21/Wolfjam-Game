@@ -40,9 +40,10 @@ func _on_player_detection_zone_body_entered(body):
 
 
 func _on_player_detection_zone_body_exited(body):
-	print("Exited")
-	current_state = State.PATROL
-	player = null
+	if body.is_in_group("player"):
+		print("Exited")
+		current_state = State.PATROL
+		player = null
 
 
 func _on_hitbox_body_entered(body):
