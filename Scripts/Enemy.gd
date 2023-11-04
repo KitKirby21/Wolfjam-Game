@@ -1,11 +1,20 @@
-extends Node2D
+extends CharacterBody2D
+
+var speed = 200
+var motion = Vector2.ZERO
+var player = null
+
+func _physics_process(delta):
+	if player:
+		motion = position.direction_to(player.position) * speed
+	velocity = motion;
+	move_and_slide()
 
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
+
+func _on_area_2d_body_entered(body):
+	player = body
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
+func _on_area_2d_body_exited(body):
+	player = null
