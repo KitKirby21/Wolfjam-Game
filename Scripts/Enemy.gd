@@ -10,6 +10,7 @@ enum State {
 }
 
 @onready var player_detection_zone = $PlayerDetectionZone
+signal died
 
 var current_state:int = State.PATROL:
 	get:
@@ -48,9 +49,9 @@ func _on_player_detection_zone_body_exited(body):
 		current_state = State.PATROL
 		player = null
 
-
-func _on_hitbox_body_entered(body):
-	if body.is_in_group("bullet"):
-		print("Damaged")
-		health -= body.bullet_damage
-	pass # Replace with function body.
+func _on_hitbox_area_entered(area):
+	if area.is_in_group("bullet"):
+		health -= area.bullet_damage
+		print(health)
+		if health <= 0:
+			pass
