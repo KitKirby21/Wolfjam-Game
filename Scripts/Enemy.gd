@@ -93,4 +93,5 @@ func _on_player_detection_zone_body_exited(body):
 
 func _on_hitbox_area_entered(area):
 	if area.is_in_group("bullet"):
-		take_damage(area.bullet_damage)
+		if area.can_damage_enemies:
+			take_damage(area.bullet_damage)

@@ -3,6 +3,7 @@ extends Area2D
 
 @export var bullet_speed: int = 20
 @export var bullet_damage = 1
+var can_damage_enemies = true;
 
 var direction :=Vector2.ZERO
 
@@ -10,6 +11,7 @@ var direction :=Vector2.ZERO
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	var can_damage_enemies = false
 	add_to_group("bullet")
 
 
