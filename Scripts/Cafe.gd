@@ -6,7 +6,7 @@ extends Node2D
 @onready var speed_area = $SpeedArea;
 @onready var haste_area = $HasteArea;
 @onready var damage_area = $DamageArea;
-@onready var cat_area = $CatArea;
+
 
 var current_shop ="";
 
@@ -63,58 +63,6 @@ func _buy(shop, price):
 		print("haha poor");
 	return;
 
-func _on_damage_area_body_entered(body):
-	if body.is_in_group("player"):
-		current_shop = "Damage";
-		print("entered damage shop");
-	return;
-
-
-func _on_health_area_body_entered(body):
-	if body.is_in_group("player") :
-		current_shop = "Health";
-		print("entered health shop");
-	return;
-
-
-func _on_speed_area_body_entered(body):
-	if body.is_in_group("player"):
-		current_shop = "Speed";
-		print("entered speed shop");
-	return;
-
-
-func _on_haste_area_body_entered(body):
-	if body.is_in_group("player"):
-		current_shop = "Haste"	
-		print("entered haste shop");
-	return;
-
-
-func _on_health_area_body_exited(body):
-	if body.is_in_group("player"):
-		print("left health shop")		
-		current_shop = "";
-
-
-func _on_speed_area_body_exited(body):
-	if body.is_in_group("player"):
-		print("left speed shop")
-		current_shop = "";
-
-
-func _on_haste_area_body_exited(body):
-	if body.is_in_group("player"):
-		print("left haste shop")
-		current_shop = "";
-
-
-func _on_damage_area_body_exited(body):
-	if body.is_in_group("player"):
-		print("left damage shop")
-		current_shop = "";
-
-
 func _on_cat_area_body_entered(body):
 	if body.is_in_group("player"):
 		DungeonManager.CurrentState = DungeonManager.Type.COMBAT
@@ -127,3 +75,49 @@ func _on_cat_area_body_exited(body):
 		print("the cat misses you already");
 		can_pet_cat = false;
 
+func _on_health_area_body_entered(body):
+	if body.is_in_group("player"):
+		current_shop = "Health";
+		print("the cat is ready");
+
+
+func _on_health_area_body_exited(body):
+	if body.is_in_group("player"):
+		current_shop = "";
+		print("no more");
+
+
+func _on_haste_area_body_entered(body):
+	if body.is_in_group("player"):
+		current_shop = "Haste";
+		print("the cat is ready");
+
+
+func _on_haste_area_body_exited(body):
+	if body.is_in_group("player"):
+		current_shop = "";
+		print("no more");
+
+
+func _on_damage_area_body_entered(body):
+	if body.is_in_group("player"):
+		current_shop = "Damage";
+		print("the cat is ready");
+
+
+func _on_damage_area_body_exited(body):
+	if body.is_in_group("player"):
+		current_shop = "";
+		print("no more");
+
+
+func _on_speed_area_body_entered(body):
+	if body.is_in_group("player"):
+		current_shop = "Speed";
+		print("the cat is ready");
+
+
+func _on_speed_area_body_exited(body):
+	if body.is_in_group("player"):
+		current_shop = "";
+		print("no more");
