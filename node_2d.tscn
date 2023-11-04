@@ -10,3 +10,13 @@ position = Vector2(96, 184)
 
 [node name="Enemy" parent="." instance=ExtResource("2_myqau")]
 position = Vector2(520, 168)
+marker_group_name = "wander1"
+
+[node name="Marker2D" type="Marker2D" parent="." groups=["wander1"]]
+position = Vector2(584, 384)
+
+[node name="Marker2D2" type="Marker2D" parent="." groups=["wander1"]]
+position = Vector2(416, 384)
+
+[node name="Marker2D3" type="Marker2D" parent="." groups=["wander1"]]
+position = Vector2(512, 40)
