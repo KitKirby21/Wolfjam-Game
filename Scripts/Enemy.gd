@@ -34,16 +34,9 @@ func _ready():
 func _physics_process(delta):
 	match current_state:
 		State.STUN:
-			stun_timer -= delta
-			if stun_timer <= 0:
-				if player:
-					current_state = State.ENGAGE
-				else:
-					current_state = State.PATROL
+			stun_process(delta)
 		State.PATROL:
-			move(current_position.position, delta)
-			if global_position.distance_to(current_position.position) < 10:
-				get_next_position()
+			patrol(delta)
 		State.ENGAGE:
 			move(player.global_position, delta)
 
@@ -63,6 +56,14 @@ func take_damage(dmg):
 		DungeonManager._chanceDrop(global_position)
 		queue_free()
 
+func stun_process(delta):
+	stun_timer -= delta
+	if stun_timer <= 0:
+		if player:
+			current_state = State.ENGAGE
+		else:
+			current_state = State.PATROL
+	
 func get_positions():
 	temp_positions = positions.duplicate()
 	temp_positions.shuffle()
@@ -71,6 +72,11 @@ func get_next_position():
 	if temp_positions.is_empty():
 		get_positions()
 	current_position = temp_positions.pop_front()
+
+func patrol(delta):
+	move(current_position.position, delta)
+	if global_position.distance_to(current_position.position) < 10:
+		get_next_position()
 
 func _on_player_detection_zone_body_entered(body):
 	if body.is_in_group("player"):
