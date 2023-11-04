@@ -7,6 +7,7 @@ signal shot(bullet, position, direction)
 @export var Bullet: PackedScene
 
 @onready var gun_end = $"Gun End"
+@onready var enemy_anim = $AnimationPlayer
 
 var shoot_cooldown = 0;
 
@@ -19,8 +20,11 @@ func _physics_process(delta):
 			stun_process(delta);
 		State.PATROL:
 			patrol(delta);
+			enemy_anim.play("walk")
+			
 		State.ENGAGE:
 			#Move away from the player if it's too close
+			enemy_anim.play("walk")
 			distance_to_player =  self.position - player.position;
 			if distance_to_player.length() < 350:
 				move(self.position + player.position, delta);
@@ -32,6 +36,7 @@ func _physics_process(delta):
 			pass
 
 func shoot():
+	enemy_anim.play("attack")
 	var bullet_instance = Bullet.instantiate()
 	var target = player.position;
 	var direction = gun_end.global_position.direction_to(target).normalized()
