@@ -8,10 +8,10 @@ func _physics_process(delta):
 			stun_process(delta)
 		State.PATROL:
 			patrol(delta)
-			if get_next_position().position > position:
-				enemy_anim.play("walk")
-			else:
-				enemy_anim.play("walk")
+			enemy_anim.play("walk")
 		State.ENGAGE:
 			move(player.global_position, delta)
 			enemy_anim.play("walk")
+
+func take_damage(dmg):
+	enemy_anim.play("take_damage")
