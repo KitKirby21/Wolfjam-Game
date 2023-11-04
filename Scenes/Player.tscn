@@ -1,18 +1,8 @@
-<<<<<<< Updated upstream
 [gd_scene load_steps=5 format=3 uid="uid://clm0appmkyrgr"]
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_2c0h6"]
 [ext_resource type="PackedScene" uid="uid://bmpwgerfwfoop" path="res://Scenes/Bullet.tscn" id="2_bwqwu"]
 [ext_resource type="Texture2D" uid="uid://d0amxov3s6xt3" path="res://Resources/Textures/cat.png" id="2_ep6nn"]
-=======
-[gd_scene load_steps=4 format=3 uid="uid://clm0appmkyrgr"]
-
-[ext_resource type="Script" path="res://Scripts/Player.gd" id="1_2c0h6"]
-[ext_resource type="Texture2D" uid="uid://b2vbqvp3858pt" path="res://Resources/Textures/cat.png" id="2_ep6nn"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_dnwbt"]
-size = Vector2(64, 64)
->>>>>>> Stashed changes
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2peja"]
 size = Vector2(41.8203, 42)
@@ -22,7 +12,6 @@ scale = Vector2(3.89043, 3.82)
 collision_layer = 4
 collision_mask = 4
 script = ExtResource("1_2c0h6")
-<<<<<<< Updated upstream
 Bullet = ExtResource("2_bwqwu")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -39,17 +28,3 @@ shape = SubResource("RectangleShape2D_2peja")
 
 [node name="GunEnd" type="Node2D" parent="."]
 position = Vector2(22.8766, -4.97382)
-=======
-
-[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
-position = Vector2(136, 128)
-
-[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
-position = Vector2(-104, -95.5)
-scale = Vector2(0.241509, 0.248031)
-texture = ExtResource("2_ep6nn")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
-position = Vector2(-104, -96)
-shape = SubResource("RectangleShape2D_dnwbt")
->>>>>>> Stashed changes
