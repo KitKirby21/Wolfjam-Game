@@ -15,3 +15,6 @@ func _ready():
 func _process(delta):
 
 	return
+func _chanceDrop(position):
+	print(position)
+	return
