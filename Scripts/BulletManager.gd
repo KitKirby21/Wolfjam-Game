@@ -8,3 +8,4 @@ func bullet_spawned(bullet, position, direction, enemy_damage):
 	bullet.z_index = 3
 	bullet.global_rotation = direction.angle()
 	bullet.can_damage_enemies = enemy_damage;
+	bullet.get_tree().get_first_node_in_group("audio").play();
