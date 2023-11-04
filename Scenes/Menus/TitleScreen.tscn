@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://bbbewawvruidr"]
+[gd_scene load_steps=4 format=3 uid="uid://bbbewawvruidr"]
 
 [ext_resource type="Script" path="res://Scripts/TitleScreen.gd" id="1_msqbp"]
+[ext_resource type="Theme" uid="uid://b71wrlc0sv5m8" path="res://Resources/TextThemes/TitleTextTheme.tres" id="2_c7la6"]
 [ext_resource type="Theme" uid="uid://6n1isnwcl482" path="res://Resources/TextThemes/NormalTextTheme.tres" id="2_h6ajs"]
 
 [node name="TitleMenu" type="Control"]
@@ -30,7 +31,7 @@ offset_left = -168.0
 offset_right = 168.0
 offset_bottom = 89.0
 grow_horizontal = 2
-theme_override_font_sizes/normal_font_size = 64
+theme = ExtResource("2_c7la6")
 text = "Game Title"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer"]
@@ -55,13 +56,11 @@ text = "Start Game"
 [node name="ControlsButton" type="Button" parent="CanvasLayer/VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("2_h6ajs")
-theme_override_font_sizes/font_size = 32
 text = "Controls"
 
 [node name="QuitButton" type="Button" parent="CanvasLayer/VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("2_h6ajs")
-theme_override_font_sizes/font_size = 32
 text = "Quit"
 
 [connection signal="pressed" from="CanvasLayer/VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
