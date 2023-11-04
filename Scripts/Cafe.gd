@@ -42,15 +42,15 @@ func _pet_cat():
 	
 func _buy(shop, price):
 	if shop == "Health" and _check_kromer(price):
-		DungeonManager.health += 1;
+		DungeonManager.health += 5;
 		DungeonManager.kromer -= price
 		print("mmm health");
 	elif shop == "Speed" and _check_kromer(price):
-		DungeonManager.speed += 1;
+		DungeonManager.speed += 20;
 		DungeonManager.kromer -= price
 		print("nyoom");	
 	elif shop == "Haste" and _check_kromer(price):
-		DungeonManager.haste += 1;
+		DungeonManager.haste += 5;
 		DungeonManager.kromer -= price
 		print("I'm fast as fuck boi");
 	elif shop == "Damage" and _check_kromer(price):
