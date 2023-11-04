@@ -121,3 +121,7 @@ func _on_speed_area_body_exited(body):
 	if body.is_in_group("player"):
 		current_shop = "";
 		print("no more");
+
+
+func _on_exit_body_entered(body):
+	print("Move to dungeon");
