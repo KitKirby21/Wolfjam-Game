@@ -3,8 +3,8 @@
 [ext_resource type="Script" path="res://Scripts/TitleScreen.gd" id="1_msqbp"]
 [ext_resource type="Texture2D" uid="uid://dor2dtsq6fl3w" path="res://Resources/Textures/Start_Screen.png" id="2_avpsb"]
 [ext_resource type="Theme" uid="uid://6n1isnwcl482" path="res://Resources/TextThemes/NormalTextTheme.tres" id="2_h6ajs"]
-[ext_resource type="Texture2D" uid="uid://c063pw57n40ta" path="res://Resources/Textures/Start_Button.png" id="4_88dcj"]
-[ext_resource type="Texture2D" uid="uid://dm5oel6dkh0mj" path="res://Resources/Textures/Options_Button.png" id="5_k3cgy"]
+[ext_resource type="Texture2D" uid="uid://5saxbm3gmpa1" path="res://Resources/Textures/Start_Button.png" id="4_88dcj"]
+[ext_resource type="Texture2D" uid="uid://qa8f5jjchvja" path="res://Resources/Textures/Options_Button.png" id="5_k3cgy"]
 [ext_resource type="Texture2D" uid="uid://btbtnmwoejq2s" path="res://Resources/Textures/Quit_Button.png" id="6_od4m2"]
 [ext_resource type="Texture2D" uid="uid://cuvxhoiffq117" path="res://Resources/Textures/cat_idle-Sheet.png" id="7_eqd1s"]
 
