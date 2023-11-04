@@ -24,6 +24,7 @@ signal shot(bullet, position, direction)
 func _process(delta):
 	pass
 
+<<<<<<< Updated upstream
 func _get_input():
 	var input_direction = Input.get_vector("moveLeft", "moveRight", "moveUp", "moveDown")
 	velocity = input_direction * speed
@@ -40,3 +41,6 @@ func shoot():
 func _physics_process(delta):
 	_get_input()
 	move_and_slide()
+=======
+
+>>>>>>> Stashed changes
