@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-@export var SPEED = 200
+@export var SPEED = 100
 
 var health = 5
 
@@ -10,6 +10,7 @@ enum State {
 }
 
 @onready var player_detection_zone = $PlayerDetectionZone
+signal died
 
 var current_state:int = State.PATROL:
 	get:
@@ -29,20 +30,24 @@ func _physics_process(delta):
 			pass
 		State.ENGAGE:
 			move(player.global_position, delta)
-
+			var direction = (player.global_position - global_position).normalized()
+			var desired_velocity = direction * SPEED
+			var steering = (desired_velocity - velocity) * delta * 2.5
+			velocity += steering
+			move_and_slide()		
 func move(target, delta):
 	var direction = (target - global_position).normalized()
 	var desired_velocity = direction * SPEED
 	var steering = (desired_velocity - velocity) * delta * 2.5
 	velocity += steering
 	move_and_slide()
-
 func take_damage(dmg):
 	health -= dmg
 	print(health)
 	if health <= 0:
 		DungeonManager._chanceDrop(global_position)
 		queue_free()
+
 
 func _on_player_detection_zone_body_entered(body):
 	if body.is_in_group("player"):
@@ -62,7 +67,7 @@ func _on_hitbox_area_entered(area):
 		health -= area.bullet_damage
 		print(health)
 		if health <= 0:
-			#print(self.position)
+			print(self.position)
 			DungeonManager._chanceDrop(self.position)
 			queue_free()
 		take_damage(area.bullet_damage)
