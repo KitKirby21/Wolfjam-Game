@@ -39,11 +39,11 @@ func shoot():
 	var direction = gun_end.global_position.direction_to(target).normalized()
 	BulletManager.bullet_spawned(bullet_instance, gun_end.global_position, direction)
 
-#perform melee attack
-func smack():
-	pass
-
 #get input and move things accordingly
 func _physics_process(delta):
 	_get_input()
 	move_and_slide()
+
+#perform melee attack
+func _on_melee_swing_area_entered(area):
+	pass # Replace with function body.

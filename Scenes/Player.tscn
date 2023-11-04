@@ -60,11 +60,9 @@ scale = Vector2(0.158, 0.165)
 texture = ExtResource("2_ep6nn")
 
 [node name="MeleeSwing" type="Area2D" parent="Sprite2D"]
-scale = Vector2(1, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/MeleeSwing"]
 position = Vector2(226.706, -3.1731)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_e5hkq")
 disabled = true
 
@@ -79,3 +77,5 @@ shape = SubResource("RectangleShape2D_2peja")
 
 [node name="GunEnd" type="Node2D" parent="."]
 position = Vector2(22.8766, -4.97382)
+
+[connection signal="area_entered" from="Sprite2D/MeleeSwing" to="." method="_on_melee_swing_area_entered"]
