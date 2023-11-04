@@ -208,6 +208,8 @@ libraries = {
 }
 
 [node name="MeleeSwing" type="Area2D" parent="Sprite2D"]
+collision_layer = 4
+collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/MeleeSwing"]
 position = Vector2(-2.2898, 33.7244)
@@ -254,6 +256,10 @@ collision_mask = 4
 position = Vector2(0, 4.99306e-07)
 scale = Vector2(1, 1.00311)
 shape = SubResource("RectangleShape2D_o6cfb")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+limit_left = 0
+limit_top = 0
 
 [connection signal="area_entered" from="Sprite2D/MeleeSwing" to="." method="_on_melee_swing_area_entered"]
 [connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]
