@@ -1,17 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://xociafwscwxf"]
+[gd_scene load_steps=2 format=3 uid="uid://xociafwscwxf"]
 
 [ext_resource type="Script" path="res://Scripts/Level.gd" id="1_hm7ax"]
-[ext_resource type="PackedScene" uid="uid://hinrjop3j4fu" path="res://Scenes/DungeonLayouts/DungeonSquare.tscn" id="2_n57e7"]
-[ext_resource type="PackedScene" uid="uid://clm0appmkyrgr" path="res://Scenes/Player.tscn" id="3_xrg1g"]
 
 [node name="level" type="Node2D"]
 scale = Vector2(4.02407, 2.6115)
 script = ExtResource("1_hm7ax")
-
-[node name="DungeonSquare" parent="." instance=ExtResource("2_n57e7")]
-position = Vector2(143, 110)
-scale = Vector2(1.8386, 1.76849)
-
-[node name="Player" parent="." instance=ExtResource("3_xrg1g")]
-position = Vector2(53, 40)
-scale = Vector2(1.54665, 1.39113)
