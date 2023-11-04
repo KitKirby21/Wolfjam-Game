@@ -2,6 +2,12 @@ extends CharacterBody2D
 
 @export var speed = 200
 
+@export var health = 50
+
+@export var haste = 60
+
+@export var damage = 1
+
 @export var can_move = true
 
 @export var Bullet: PackedScene
