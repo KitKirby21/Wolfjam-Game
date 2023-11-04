@@ -1,6 +1,69 @@
-[gd_scene load_steps=2 format=3 uid="uid://cm8erptmmfk43"]
+[gd_scene load_steps=4 format=3 uid="uid://cm8erptmmfk43"]
 
 [ext_resource type="Script" path="res://Scripts/Cafe.gd" id="1_2tq0t"]
+[ext_resource type="PackedScene" uid="uid://clm0appmkyrgr" path="res://Scenes/Player.tscn" id="2_soff6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ftoee"]
+size = Vector2(221, 139)
 
 [node name="Cafe" type="Node2D"]
 script = ExtResource("1_2tq0t")
+
+[node name="Player" parent="." instance=ExtResource("2_soff6")]
+position = Vector2(482, 476)
+
+[node name="HealthArea" type="Area2D" parent="."]
+position = Vector2(144, 84)
+
+[node name="Increase Box" type="CollisionShape2D" parent="HealthArea"]
+shape = SubResource("RectangleShape2D_ftoee")
+
+[node name="TextEdit" type="TextEdit" parent="HealthArea/Increase Box"]
+offset_left = -82.0
+offset_top = -51.0
+offset_right = 8.0
+offset_bottom = 8.0
+text = "Health"
+metadata/_edit_use_anchors_ = true
+
+[node name="SpeedArea" type="Area2D" parent="."]
+position = Vector2(402, 82)
+
+[node name="Increase Box" type="CollisionShape2D" parent="SpeedArea"]
+shape = SubResource("RectangleShape2D_ftoee")
+
+[node name="TextEdit" type="TextEdit" parent="SpeedArea/Increase Box"]
+offset_left = -82.0
+offset_top = -51.0
+offset_right = 8.0
+offset_bottom = 8.0
+text = "Speed"
+metadata/_edit_use_anchors_ = true
+
+[node name="HasteArea" type="Area2D" parent="."]
+position = Vector2(671, 86)
+
+[node name="Increase Box" type="CollisionShape2D" parent="HasteArea"]
+shape = SubResource("RectangleShape2D_ftoee")
+
+[node name="TextEdit" type="TextEdit" parent="HasteArea/Increase Box"]
+offset_left = -82.0
+offset_top = -51.0
+offset_right = 8.0
+offset_bottom = 8.0
+text = "Haste"
+metadata/_edit_use_anchors_ = true
+
+[node name="DamageArea" type="Area2D" parent="."]
+position = Vector2(945, 91)
+
+[node name="Increase Box" type="CollisionShape2D" parent="DamageArea"]
+shape = SubResource("RectangleShape2D_ftoee")
+
+[node name="TextEdit" type="TextEdit" parent="DamageArea/Increase Box"]
+offset_left = -82.0
+offset_top = -51.0
+offset_right = 8.0
+offset_bottom = 8.0
+text = "Damage"
+metadata/_edit_use_anchors_ = true

@@ -32,7 +32,7 @@ func _get_input():
 func shoot():
 	var bullet_instance = Bullet.instance()
 	add_child(bullet_instance)
-	bullet_instance.global_position =
+	#bullet_instance.global_position =
 
 func _physics_process(delta):
 	_get_input()

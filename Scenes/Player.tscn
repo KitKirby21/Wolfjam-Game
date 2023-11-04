@@ -12,11 +12,6 @@ scale = Vector2(3.89043, 3.82)
 collision_layer = 4
 collision_mask = 4
 script = ExtResource("1_2c0h6")
-speed = null
-health = null
-haste = null
-damage = null
-can_move = null
 Bullet = ExtResource("2_bwqwu")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
