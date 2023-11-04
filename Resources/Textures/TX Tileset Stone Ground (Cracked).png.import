@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://qh1gtmxsh0wd"
-path="res://.godot/imported/Enemies_Spritesheet.png-cc9a1b3f5be6db419d9282ab56dca999.ctex"
+uid="uid://v5608lvyqtj8"
+path="res://.godot/imported/TX Tileset Stone Ground (Cracked).png-77d5f4a7f6c4d22943632403f735c4bf.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Resources/Textures/Enemies_Spritesheet.png"
-dest_files=["res://.godot/imported/Enemies_Spritesheet.png-cc9a1b3f5be6db419d9282ab56dca999.ctex"]
+source_file="res://Resources/Textures/TX Tileset Stone Ground (Cracked).png"
+dest_files=["res://.godot/imported/TX Tileset Stone Ground (Cracked).png-77d5f4a7f6c4d22943632403f735c4bf.ctex"]
 
 [params]
 

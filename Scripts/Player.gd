@@ -38,4 +38,5 @@ func _physics_process(delta):
 #melee hit detection
 func _on_melee_swing_area_entered(area):
 	if area.is_in_group("enemy"):
-		print("enemy hit")
+		#area.take_damage(damage)
+		print("hit")

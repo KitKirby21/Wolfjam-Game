@@ -1,0 +1,41 @@
+[gd_scene load_steps=5 format=3 uid="uid://d10ktlmsdcynj"]
+
+[ext_resource type="Script" path="res://Scripts/MeleeEnemy.gd" id="1_v47tk"]
+[ext_resource type="Texture2D" uid="uid://c07vxxl6sykhv" path="res://icon.svg" id="2_8ntag"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_scf3i"]
+size = Vector2(32, 32)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_patb3"]
+radius = 128.0
+
+[node name="MeleeEnemy" type="CharacterBody2D" groups=["enemy"]]
+collision_layer = 4
+collision_mask = 4
+script = ExtResource("1_v47tk")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_8ntag")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_scf3i")
+
+[node name="PlayerDetectionZone" type="Area2D" parent="." groups=["enemy"]]
+collision_layer = 5
+collision_mask = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetectionZone"]
+shape = SubResource("CircleShape2D_patb3")
+
+[node name="Hitbox" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+shape = SubResource("RectangleShape2D_scf3i")
+
+[connection signal="body_entered" from="PlayerDetectionZone" to="." method="_on_player_detection_zone_body_entered"]
+[connection signal="body_exited" from="PlayerDetectionZone" to="." method="_on_player_detection_zone_body_exited"]
+[connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]
