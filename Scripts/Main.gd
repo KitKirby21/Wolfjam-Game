@@ -5,7 +5,7 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	player.connect("shot", Callable(bullet_manager, "bullet_spawned"))
+	pass
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

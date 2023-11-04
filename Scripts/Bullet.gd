@@ -2,6 +2,7 @@ extends Area2D
 
 
 @export var bullet_speed: int = 20
+@export var bullet_damage = 1
 
 var direction :=Vector2.ZERO
 
