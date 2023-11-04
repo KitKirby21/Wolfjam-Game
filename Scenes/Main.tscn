@@ -1,3 +1,10 @@
-[gd_scene format=3 uid="uid://b716n5eevuyyr"]
+[gd_scene load_steps=3 format=3 uid="uid://b716n5eevuyyr"]
+
+[ext_resource type="Script" path="res://Scripts/Main.gd" id="1_ut7xm"]
+[ext_resource type="Script" path="res://Scripts/BulletManager.gd" id="2_sptwv"]
 
 [node name="Main" type="Node2D"]
+script = ExtResource("1_ut7xm")
+
+[node name="BulletManager" type="Node2D" parent="."]
+script = ExtResource("2_sptwv")
