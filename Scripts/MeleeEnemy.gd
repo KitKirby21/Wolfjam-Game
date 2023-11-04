@@ -22,20 +22,22 @@ func _physics_process(delta):
 		melee_cooldown = 0.5
 
 func take_damage(dmg):
+	enemy_anim.play("take_damage")
 	health -= dmg
 	current_state = State.STUN
 	stun_timer = 0.1
 	print(health)
 	if health <= 0:
+		enemy_anim.play("death1")
 		DungeonManager._chanceDrop(global_position)
 		queue_free()
-	enemy_anim.play("take_damage")
 
 
 func _on_attack_range_body_entered(body):
 	if body.is_in_group("player"):
 		melee_in_range = true
 		print(melee_in_range)
+		enemy_anim.play("attack")
 		body.take_damage(melee_damage)
 
 

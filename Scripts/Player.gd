@@ -41,7 +41,6 @@ func _physics_process(delta):
 func take_damage(dmg):
 	DungeonManager.health -= dmg
 	anim_player.play("take_damage")
-	print(DungeonManager.health)
 	if DungeonManager.health <= 0:
 		DungeonManager.health = 0
 		get_tree().change_scene_to_file("res://Scenes/Menus/DeathScreen.tscn")
