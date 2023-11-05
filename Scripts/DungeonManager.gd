@@ -12,12 +12,16 @@ var DungeonLeft = load("res://Scenes/DungeonLayouts/DungeonLeft.tscn")
 
 var Levels = ["DungeonLayouts/DungeonTShape","DungeonLayouts/DungeonConnector","DungeonLayouts/DungeonLeft","DungeonLayouts/DungeonSquare"]
 var levelNum = 0
+
+#Player Stats, Stored in the DungeonManager
 var speed = 200
 var max_health = 50
 var health = 49
 var haste = 60
 var damage = 1
 var kromer = 30
+
+
 var Enemies;
 var pickup_instance;
 
@@ -41,19 +45,12 @@ enum Type {
 func _ready():
 	var player = get_tree().get_first_node_in_group("player")
 	Enemies = get_tree().get_nodes_in_group("enemy")
-	ui = get_tree().get_first_node_in_group("UI");
-	#print(ui)
 
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	ui = get_tree().get_first_node_in_group("UI");
 	Enemies = get_tree().get_nodes_in_group("enemy")
-	if(ui):	
-		ui.get_node("Coins/CoinsLabel").text = str(kromer);
-		ui.get_node("Health/HealthBar").max_value = max_health;
-		ui.get_node("Health/HealthBar").value = health;
 
 	#print(CurrentState)
 	if(Enemies.size()<=0 &&CurrentState==Type.COMBAT):

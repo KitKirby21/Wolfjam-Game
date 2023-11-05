@@ -1,14 +1,13 @@
-[gd_scene load_steps=22 format=3 uid="uid://bcldgwuluxweu"]
+[gd_scene load_steps=21 format=3 uid="uid://ddi6dunpprd6r"]
 
 [ext_resource type="Script" path="res://Scripts/Cafe.gd" id="1_nl6ax"]
-[ext_resource type="Texture2D" uid="uid://baficbe78ojha" path="res://Resources/Textures/Cafe_Screen.png" id="1_q6011"]
+[ext_resource type="Texture2D" uid="uid://c76no6npywbn2" path="res://Resources/Textures/Cafe_Screen.png" id="1_q6011"]
 [ext_resource type="Texture2D" uid="uid://b2v4l8ojkw441" path="res://Resources/Textures/health upgrade.png" id="3_w4jfn"]
 [ext_resource type="Texture2D" uid="uid://bsnb04dvm6o40" path="res://Resources/Textures/price_tag.png" id="3_yowdi"]
 [ext_resource type="Texture2D" uid="uid://dnldt1jnpmuf7" path="res://Resources/Textures/haste upgrade.png" id="4_4w7lv"]
 [ext_resource type="Texture2D" uid="uid://o5623ymekc4b" path="res://Resources/Textures/damage upgrade.png" id="5_mop1g"]
 [ext_resource type="Texture2D" uid="uid://c06lutsydkxcy" path="res://Resources/Textures/speed upgrade.png" id="6_sht0h"]
-[ext_resource type="PackedScene" uid="uid://civreqnhpit2w" path="res://Scenes/Player.tscn" id="7_4e4kc"]
-[ext_resource type="PackedScene" uid="uid://ctkh20mmnatme" path="res://Scenes/UI.tscn" id="9_yomuc"]
+[ext_resource type="PackedScene" uid="uid://b88dbx5hjpwgx" path="res://Scenes/Player.tscn" id="7_4e4kc"]
 [ext_resource type="Texture2D" uid="uid://dupb8oey7k8xb" path="res://Resources/Textures/SewerGrate_Closed.png" id="10_xt6sc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5qu5a"]
@@ -123,7 +122,6 @@ texture = ExtResource("6_sht0h")
 [node name="Player" parent="." instance=ExtResource("7_4e4kc")]
 position = Vector2(1007, 605)
 rotation = -3.14925
-scale = Vector2(1.018, 1)
 
 [node name="Exit" type="Area2D" parent="."]
 position = Vector2(1097, 402)
@@ -235,12 +233,6 @@ light_mask = 5
 visibility_layer = 5
 position = Vector2(288, 33)
 shape = SubResource("CircleShape2D_uli6a")
-
-[node name="UI" parent="." groups=["UI"] instance=ExtResource("9_yomuc")]
-offset_left = 608.0
-offset_top = 829.0
-offset_right = 608.0
-offset_bottom = 829.0
 
 [node name="Label" type="Label" parent="."]
 offset_left = 802.0

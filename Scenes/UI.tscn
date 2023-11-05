@@ -1,5 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://ctkh20mmnatme"]
+[gd_scene load_steps=4 format=3 uid="uid://ctkh20mmnatme"]
 
+[ext_resource type="Script" path="res://Scenes/UI.gd" id="1_4sdrh"]
 [ext_resource type="Texture2D" uid="uid://d2k6gs7hbpyp1" path="res://Resources/Textures/Heart.png" id="1_nsqlu"]
 [ext_resource type="Texture2D" uid="uid://c1p6qkaa0broh" path="res://Resources/Textures/Coin.png" id="2_0ua2a"]
 
@@ -10,6 +11,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_4sdrh")
 
 [node name="Health" type="TextureRect" parent="."]
 layout_mode = 1
@@ -18,12 +20,13 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -556.0
-offset_top = -298.5
-offset_right = -463.0
-offset_bottom = -206.5
+offset_left = -550.0
+offset_top = -312.0
+offset_right = -457.0
+offset_bottom = -220.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(0.75, 0.75)
 texture = ExtResource("1_nsqlu")
 
 [node name="HealthBar" type="ProgressBar" parent="Health"]
@@ -47,12 +50,13 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 379.0
-offset_top = -298.5
-offset_right = 472.0
-offset_bottom = -206.5
+offset_left = 424.0
+offset_top = -309.0
+offset_right = 517.0
+offset_bottom = -217.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(0.75, 0.75)
 texture = ExtResource("2_0ua2a")
 
 [node name="CoinsLabel" type="Label" parent="Coins"]
